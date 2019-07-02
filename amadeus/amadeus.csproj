@@ -1,0 +1,155 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>amadeus-csharp</PackageId>
+    <PackageVersion>1</PackageVersion>
+    <Authors>Amadeus</Authors>
+    <Owners>Amadeus</Owners>
+    <PackOnBuild>true</PackOnBuild>
+    <Description>Amadeus</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DocumentationFile>bin\Debug\netstandard2.0\amadeus.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+    <DocumentationFile>bin\Release\netstandard2.0\amadeus.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="client\" />
+    <Folder Include="exceptions\" />
+    <Folder Include="resources\" />
+    <Folder Include="referenceData\" />
+    <Folder Include="referenceData\urls\" />
+    <Folder Include="referenceData\locations\" />
+    <Folder Include="shopping\" />
+    <Folder Include="travel\" />
+    <Folder Include="travel\analytics\" />
+    <Folder Include="travel\analytics\airTraffic\" />
+    <Folder Include="util\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
+    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.2" />
+    <PackageReference Include="docfx.console" Version="2.41.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="travist.yml" />
+    <Compile Remove="shopping\Hotel.cs" />
+    <None Remove="api\amadeus.yml" />
+    <None Remove="api\amadeus.Configuration.yml" />
+    <None Remove="api\amadeus.Params.yml" />
+    <None Remove="api\amadeus.ReferenceData.yml" />
+    <None Remove="api\amadeus.Request.yml" />
+    <None Remove="api\amadeus.exceptions.yml" />
+    <None Remove="api\amadeus.exceptions.AuthenticationException.yml" />
+    <None Remove="api\amadeus.exceptions.ClientException.yml" />
+    <None Remove="api\amadeus.exceptions.NotFoundException.yml" />
+    <None Remove="api\amadeus.exceptions.ParserException.yml" />
+    <None Remove="api\amadeus.exceptions.ResponseException.yml" />
+    <None Remove="api\.manifest" />
+    <None Remove="api\toc.yml" />
+    <None Remove="api\amadeus.Response.yml" />
+    <None Remove="api\amadeus.Shopping.yml" />
+    <None Remove="api\amadeus.Travel.yml" />
+    <None Remove="api\resources.referenceData.Urls.yml" />
+    <None Remove="api\resources.referenceData.Locations.yml" />
+    <None Remove="api\index.md" />
+    <None Remove="api\amadeus.resources.HotelOffer.RoomDetails.yml" />
+    <None Remove="api\amadeus.resources.HotelOffer.TextWithLanguageType.yml" />
+    <None Remove="api\amadeus.resources.Location.yml" />
+    <None Remove="api\amadeus.resources.Location.GeoCode.yml" />
+    <None Remove="api\amadeus.resources.Location.Address.yml" />
+    <None Remove="api\amadeus.resources.Location.Distance.yml" />
+    <None Remove="api\amadeus.resources.Location.Analytics.yml" />
+    <None Remove="api\amadeus.resources.Location.Flights.yml" />
+    <None Remove="api\amadeus.resources.Location.Travelers.yml" />
+    <None Remove="api\amadeus.resources.Period.yml" />
+    <None Remove="api\amadeus.resources.Period.Analytics.yml" />
+    <None Remove="api\amadeus.resources.Period.Travelers.yml" />
+    <None Remove="api\amadeus.resources.Resource.yml" />
+    <None Remove="api\amadeus.resources.Search.yml" />
+    <None Remove="api\amadeus.resources.Search.Analytics.yml" />
+    <None Remove="api\amadeus.resources.Search.Searches.yml" />
+    <None Remove="api\amadeus.resources.SearchedDestination.yml" />
+    <None Remove="api\amadeus.resources.SearchedDestination.Analytics.yml" />
+    <None Remove="api\amadeus.resources.SearchedDestination.Searches.yml" />
+    <None Remove="api\amadeus.resources.SearchedDestination.NumberOfSearches.yml" />
+    <None Remove="api\amadeus.shopping.FlightDates.yml" />
+    <None Remove="api\amadeus.shopping.FlightDestinations.yml" />
+    <None Remove="api\amadeus.shopping.FlightOffers.yml" />
+    <None Remove="api\amadeus.shopping.HotelOffer.yml" />
+    <None Remove="api\amadeus.shopping.HotelOffers.yml" />
+    <None Remove="api\amadeus.shopping.HotelOffersByHotel.yml" />
+    <None Remove="api\amadeus.travel.Analytics.yml" />
+    <None Remove="api\amadeus.travel.analytics.airTraffic.yml" />
+    <None Remove="api\amadeus.travel.analytics.airTraffic.AirTraffic.yml" />
+    <None Remove="api\amadeus.travel.analytics.airTraffic.Booked.yml" />
+    <None Remove="api\amadeus.travel.analytics.airTraffic.BusiestPeriod.yml" />
+    <None Remove="api\amadeus.travel.analytics.airTraffic.Searched.yml" />
+    <None Remove="api\amadeus.travel.analytics.airTraffic.SearchedByDestination.yml" />
+    <None Remove="api\amadeus.travel.analytics.airTraffic.Traveled.yml" />
+    <None Remove="api\amadeus.util.yml" />
+    <None Remove="api\amadeus.util.AmadeusUtil.yml" />
+    <None Remove="api\amadeus.util.WebRequestExtensions.yml" />
+    <None Remove="api\resources.yml" />
+    <None Remove="api\resources.Constants.yml" />
+    <None Remove="api\resources.exceptions.yml" />
+    <None Remove="api\resources.exceptions.NetworkException.yml" />
+    <None Remove="api\resources.referenceData.yml" />
+    <None Remove="api\resources.referenceData.Airlines.yml" />
+    <None Remove="api\resources.referenceData.Location.yml" />
+    <None Remove="api\resources.referenceData.locations.Airports.yml" />
+    <None Remove="api\resources.referenceData.urls.CheckinLinks.yml" />
+    <None Remove="api\amadeus.yml" />
+    <None Remove="api\amadeus.ReferenceData.yml" />
+    <None Remove="api\amadeus.Request.yml" />
+    <None Remove="api\amadeus.exceptions.yml" />
+    <None Remove="api\amadeus.exceptions.AuthenticationException.yml" />
+    <None Remove="api\amadeus.exceptions.ClientException.yml" />
+    <None Remove="api\amadeus.exceptions.NotFoundException.yml" />
+    <None Remove="api\amadeus.exceptions.ParserException.yml" />
+    <None Remove="api\amadeus.exceptions.ResponseException.yml" />
+    <None Remove="api\amadeus.exceptions.ServerException.yml" />
+    <None Remove="api\amadeus.resources.yml" />
+    <None Remove="api\amadeus.resources.Airline.yml" />
+    <None Remove="api\amadeus.resources.AirTraffic.yml" />
+    <None Remove="api\amadeus.resources.AirTraffic.Analytics.yml" />
+    <None Remove="api\amadeus.yml" />
+    <None Remove="api\amadeus.ReferenceData.yml" />
+    <None Remove="api\amadeus.Request.yml" />
+    <None Remove="api\amadeus.exceptions.yml" />
+    <None Remove="api\amadeus.exceptions.AuthenticationException.yml" />
+    <None Remove="api\amadeus.exceptions.ClientException.yml" />
+    <None Remove="api\amadeus.exceptions.NotFoundException.yml" />
+    <None Remove="api\amadeus.exceptions.ParserException.yml" />
+    <None Remove="api\amadeus.exceptions.ResponseException.yml" />
+    <None Remove="api\amadeus.exceptions.ServerException.yml" />
+    <None Remove="api\amadeus.resources.yml" />
+    <None Remove="api\amadeus.resources.Airline.yml" />
+    <None Remove="api\amadeus.resources.AirTraffic.yml" />
+    <None Remove="api\amadeus.resources.AirTraffic.Analytics.yml" />
+    <None Remove="api\amadeus.resources.AirTraffic.Analytics.Flights.yml" />
+    <None Remove="api\amadeus.yml" />
+    <None Remove="api\amadeus.ReferenceData.yml" />
+    <None Remove="api\amadeus.Request.yml" />
+    <None Remove="api\amadeus.exceptions.yml" />
+    <None Remove="api\amadeus.exceptions.AuthenticationException.yml" />
+    <None Remove="api\amadeus.exceptions.ClientException.yml" />
+    <None Remove="api\amadeus.exceptions.NotFoundException.yml" />
+    <None Remove="api\amadeus.exceptions.ParserException.yml" />
+    <None Remove="api\amadeus.exceptions.ResponseException.yml" />
+    <None Remove="api\amadeus.exceptions.ServerException.yml" />
+    <None Remove="api\amadeus.resources.yml" />
+    <None Remove="api\amadeus.resources.Airline.yml" />
+    <None Remove="api\amadeus.resources.AirTraffic.yml" />
+    <None Remove="api\amadeus.resources.AirTraffic.Analytics.yml" />
+    <None Remove="api\amadeus.resources.AirTraffic.Analytics.Flights.yml" />
+    <None Remove="api\amadeus.resources.AirTraffic.Analytics.Travelers.yml" />
+    <None Remove="api\amadeus.resources.CheckinLink.yml" />
+    <None Remove="api\amadeus.resources.FlightDate.yml" />
+   </ItemGroup>
+</Project>
