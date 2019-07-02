@@ -1,3 +1,5 @@
+# This is a draft version - Work in progress
+
 # Amadeus C# SDK
 
 [![Build Status](https://travis-ci.org/amadeus4dev/amadeus-csharp.svg?branch=master)][travis]
