@@ -48,7 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test.cs" />
-    <Compile Include="AccessTokenTest.cs" />
     <Compile Include="AmadeusTest.cs" />
     <Compile Include="ConfigurationTest.cs" />
     <Compile Include="ExceptionsTest.cs" />
