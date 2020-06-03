@@ -1,4 +1,5 @@
-# This is a draft version - Work in progress
+| :warning: WARNING: **This SDK is still Work in Progress**: Be very careful here |
+| --- |
 
 # Amadeus C# SDK
 
