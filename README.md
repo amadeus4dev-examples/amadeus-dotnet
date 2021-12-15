@@ -1,15 +1,12 @@
-| :warning: WARNING: **This SDK is still Work in Progress**: Be very careful here |
-| --- |
-
 # Amadeus C# SDK
 
-[![Build Status](https://travis-ci.org/amadeus4dev/amadeus-csharp.svg?branch=master)][travis]
-[![Contact Support](https://github.com/amadeus4dev/amadeus-csharp/raw/master/.github/images/support.svg?sanitize=true)][support]
+[![Build Status](https://travis-ci.org/amadeus4dev/amadeus-dotnet.svg?branch=master)][travis]
+[![Contact Support](https://github.com/amadeus4dev/amadeus-dotnet/raw/master/.github/images/support.svg?sanitize=true)][support]
 
 Amadeus provides a set of APIs for the travel industry. Flights, Hotels, Locations and more.
 
 For more details see the [C#
-documentation](https://amadeus4dev.github.io/amadeus-csharp/) on
+documentation](https://amadeus4dev.github.io/amadeus-dotnet/) on
 [Amadeus.com](https://developers.amadeus.com).
 
 ## Installation
