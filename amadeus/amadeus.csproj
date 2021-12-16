@@ -1,13 +1,21 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>amadeus-csharp</PackageId>
+    <PackageId>amadeus-dotnet</PackageId>
     <PackageVersion>1</PackageVersion>
-    <Authors>Amadeus</Authors>
-    <Owners>Amadeus</Owners>
+    <Authors>amadeus4dev</Authors>
+    <Company>amadeus4dev</Company>
+	<Product>amadeus-dotnet</Product>
     <PackOnBuild>true</PackOnBuild>
-    <Description>Amadeus</Description>
+    <Description>Dotnet library for the Amadeus Self-Service travel APIs</Description>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+	<AssemblyName>amadeus-dotnet</AssemblyName>
+	<RepositoryUrl>https://github.com/amadeus4dev/amadeus-dotnet</RepositoryUrl>
+	<PackageReleaseNotes>The first stable version of the Amadeus for Developers Dotnet SDK</PackageReleaseNotes>
+	<NeutralLanguage>en</NeutralLanguage>
+	<PackageTags>netstandard2.0;csharp4.5</PackageTags>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -18,6 +26,7 @@
     <DocumentationFile>bin\Release\netstandard2.0\amadeus.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include=".github\images\" />
     <Folder Include="client\" />
     <Folder Include="exceptions\" />
     <Folder Include="resources\" />
@@ -152,4 +161,14 @@
     <None Remove="api\amadeus.resources.CheckinLink.yml" />
     <None Remove="api\amadeus.resources.FlightDate.yml" />
    </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.github\images\favicon.jpg">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 </Project>
