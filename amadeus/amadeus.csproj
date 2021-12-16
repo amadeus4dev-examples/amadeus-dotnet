@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -12,11 +12,10 @@
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 	<AssemblyName>amadeus-dotnet</AssemblyName>
 	<RepositoryUrl>https://github.com/amadeus4dev/amadeus-dotnet</RepositoryUrl>
-	<PackageReadmeFile>README.md</PackageReadmeFile>
-	<PackageIcon>favicon.jpg</PackageIcon>
 	<PackageReleaseNotes>The first stable version of the Amadeus for Developers Dotnet SDK</PackageReleaseNotes>
 	<NeutralLanguage>en</NeutralLanguage>
 	<PackageTags>netstandard2.0;csharp4.5</PackageTags>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -27,6 +26,7 @@
     <DocumentationFile>bin\Release\netstandard2.0\amadeus.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include=".github\images\" />
     <Folder Include="client\" />
     <Folder Include="exceptions\" />
     <Folder Include="resources\" />
