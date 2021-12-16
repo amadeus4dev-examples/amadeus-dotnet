@@ -19,8 +19,8 @@ namespace amadeustest
             try
             {
 
-                var apikey = "MRDG9GUuYOBmPLWGo1RC6mWw1Yj0chQA";
-                var apisecret = "vE1cCThQDtyX8Gzb";
+                var apikey = 'YOUR_AMADEUS_API_KEY';
+                var apisecret = 'YOUR_AMADEUS_API_SECRET';
 
                 Configuration amadeusconfig = Amadeus.builder(apikey, apisecret);
                 amadeusconfig.setLoglevel("debug");
