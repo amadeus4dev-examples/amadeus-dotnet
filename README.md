@@ -1,6 +1,10 @@
 # Amadeus Dotnet SDK
 
 [![Contact Support](https://github.com/amadeus4dev/amadeus-dotnet/raw/master/.github/images/support.svg?sanitize=true)][support]
+![GitHub issues](https://img.shields.io/github/issues/amadeus4dev/amadeus-dotnet)
+![GitHub](https://img.shields.io/github/license/amadeus4dev/amadeus-dotnet)
+![Nuget](https://img.shields.io/nuget/v/amadeus-dotnet)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/amadeus4dev/amadeus-dotnet)
 
 Amadeus provides a set of APIs for the travel industry. Flights, Hotels, Locations and more.
 
