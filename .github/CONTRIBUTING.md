@@ -17,20 +17,21 @@ Universal Windows Platform development
 
 Open project/solution
 
-Install Other dependencies.
+Right click in the solution and select Manage Nuget Packages and install other dependencies.
 
 ```
-xunit (Project: amadeus-integration-test)
-xunit.runner.visualstudio (Project: amadeus-integration-test)
-coverlet.collector (Project: amadeus-integration-test)
-Microsoft.AspNetCore.TestHost (Project: amadeus-integration-test)
-Microsoft.NET.Test.Sdk (Project: amadeus-integration-test)
-System.Runtime.CompilerServices.Unsafe (Project: amadeus-test)
-System.Threading.Tasks.Extensions (Project: amadeus-test)
-NunitTestAdapter (Project: amadeus-test)
-Nunit (Project: amadeus-test)
-Castle.Core (Project: amadeus-test)
-Moq (Project: amadeus-test)
+xunit -- (Project: amadeus-integration-test) -- version: last
+xunit.runner.visualstudio -- (Project: amadeus-integration-test) -- version: last
+coverlet.collector -- (Project: amadeus-integration-test) -- version: last
+Microsoft.AspNetCore.App -- (Project: amadeus-test) -- version: 2.1.0
+Microsoft.AspNetCore.TestHost -- (Project: amadeus-integration-test) -- version: 2.1.0
+Microsoft.NET.Test.Sdk -- (Project: amadeus-integration-test) -- version: last
+System.Runtime.CompilerServices.Unsafe -- (Project: amadeus-test) -- version: last
+System.Threading.Tasks.Extensions -- (Project: amadeus-test) -- version: last
+NunitTestAdapter -- (Project: amadeus-test) -- version: 2.1.0
+Nunit -- (Project: amadeus-test) -- version: last
+Castle.Core -- (Project: amadeus-test) -- version: last
+Moq -- (Project: amadeus-test) -- version: last
 ```
 
 ### Running tests
@@ -52,6 +53,19 @@ To make a new release, follow the following steps:
 - [ ] Tag your release in git using `git --tag vX.X.X`
 - [ ] Push the new tag `git push --tags`
 - [ ] Update the [Releases](https://github.com/amadeus4dev/amadeus-dotnet/releases) tab on GitHub with a new release for the tag, copying the description from the `CHANGELOG.md`
+
+Create the package to publish.
+
+- [ ] Right click in amadeus project and select properties.
+- [ ] Select Package tab.
+- [ ] Change package version; release notes; assembly version.
+- [ ] Right click in amadeus project and select pack.
+
+Publish package in nuget.org.
+
+- [ ] Login in https://www.nuget.org/
+- [ ] Select upload option and browse the amadeus-dotnet.<version>.nupkg file.
+- [ ] Choose the owner amadeus4dev and save.
 
 ## How to contribute to the Amadeus Dotnet SDK
 
