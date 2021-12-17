@@ -22,6 +22,13 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
+    - name: Install dependencies
+      run: | 
+        dotnet add amadeus.csproj package Newtonsoft.Json --version 12.0.1
+        dotnet add amadeus.csproj package Castle.Core --version 4.3.1
+        dotnet add amadeus.csproj package System.Runtime.CompilerServices.Unsafe --version 4.5.0
+        dotnet add amadeus.csproj package System.Threading.Tasks.Extensions --version 4.5.1
+        dotnet add amadeus.csproj package Moq --version 4.10.1
     - name: Resetting nuget
       run: |
         dotnet clean -c Release && dotnet nuget locals all --clear
