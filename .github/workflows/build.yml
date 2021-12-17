@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        dotnet-version: [ '3.0' ]
+        dotnet-version: [ '2.1.x','3.0' ]
         os: ['ubuntu-latest']
     defaults:
       run:
