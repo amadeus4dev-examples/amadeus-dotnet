@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        dotnet-version: [ '2.0.x' ]
+        dotnet-version: [ '2.1.x' ]
         os: [windows-latest]
     defaults:
       run:
