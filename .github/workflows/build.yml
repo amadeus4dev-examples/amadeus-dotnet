@@ -23,4 +23,4 @@ jobs:
       run: | 
         msbuild amadeus-csharp.sln /p:Configuration=Release
     - name: Run Tests
-      run: vstest.console.exe .\amadeus-test\bin\Release\amadeus-test.dll
+      run: vstest.console.exe amadeus-test\bin\Release\amadeus-test.dll
