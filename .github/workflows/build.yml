@@ -24,11 +24,11 @@ jobs:
         dotnet-version: ${{ matrix.dotnet-version }}
     - name: Install dependencies
       run: | 
-        Install-Package Newtonsoft.Json -ProjectName amadeus-test
-        Install-Package Castle.Core -ProjectName amadeus-test
-        Install-Package System.Runtime.CompilerServices.Unsafe -ProjectName amadeus-test
-        Install-Package System.Threading.Tasks.Extensions -ProjectName amadeus-test
-        Install-Package Moq -ProjectName amadeus-test
+        Install-Package Newtonsoft.Json -Project amadeus-test
+        Install-Package Castle.Core -Project amadeus-test
+        Install-Package System.Runtime.CompilerServices.Unsafe -Project amadeus-test
+        Install-Package System.Threading.Tasks.Extensions -Project amadeus-test
+        Install-Package Moq -Project amadeus-test
     - name: Resetting nuget
       run: |
         dotnet clean -c Release && dotnet nuget locals all --clear
