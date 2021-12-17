@@ -6,16 +6,28 @@ on:
     branches: [ master ]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        dotnet-version: [ '5.0.100' ]
+        os: ['Windows-latest', 'ubuntu-latest', 'macOS-latest']
+    defaults:
+      run:
+        shell: pwsh
+    runs-on: ${{ matrix.os }}
+    name: ${{ matrix.os }} with .NET ${{ matrix.dotnet-version }}
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.100
+    - name: Resetting nuget
+      run: |
+        dotnet clean -c Release && dotnet nuget locals all --clear
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build -c Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal -f net4.7
