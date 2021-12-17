@@ -9,8 +9,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        dotnet-version: [ '3.0', '3.1.x', '5.0.x' ]
-        os: ['Windows-latest', 'ubuntu-latest', 'macOS-latest']
+        dotnet-version: [ '3.0' ]
+        os: ['ubuntu-latest']
     defaults:
       run:
         shell: pwsh
@@ -21,7 +21,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.100
+        dotnet-version: ${{ matrix.dotnet-version }}
     - name: Resetting nuget
       run: |
         dotnet clean -c Release && dotnet nuget locals all --clear
