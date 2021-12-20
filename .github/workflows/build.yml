@@ -23,4 +23,4 @@ jobs:
     - name: Run IntegrationTests
       run: vstest.console.exe .\amadeus-integration-test\bin\Release\netcoreapp2.1\amadeus-integration-test.dll
     - name: Run UnitTests
-      run: vstest.console.exe .\amadeus-test\bin\Debug\amadeus-test.dll --Framework .NETFramework,Version=v4.7
+      run: vstest.console.exe .\amadeus-test\bin\Debug\amadeus-test.dll /TestAdapterPath:"."
