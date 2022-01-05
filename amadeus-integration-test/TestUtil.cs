@@ -4,8 +4,8 @@ namespace amadeus_integration_test
 {
     public static class TestUtil
     {
-        private static readonly string API_KEY = "FGsfeaT5TPuEyVlKhY8O0OrVGpDCqK40";
-        private static readonly string API_SECRET = "K2riEqWxiodl9XcQ";
+        private static readonly string API_KEY = "YOUR_AMADEUS_API_KEY";
+        private static readonly string API_SECRET = "YOUR_AMADEUS_API_SECRET";
 
         public static Amadeus GetAmadeusBuild()
         {
