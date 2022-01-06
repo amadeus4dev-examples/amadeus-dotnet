@@ -25,6 +25,5 @@ jobs:
       env:
           key: ${{ secrets.NET_API_KEY }}
           secret: ${{ secrets.NET_API_SECRET }}
-          test: "Test"
     - name: Run UnitTests
       run: vstest.console.exe .\amadeus-test\bin\Debug\amadeus-test.dll /TestAdapterPath:"."
