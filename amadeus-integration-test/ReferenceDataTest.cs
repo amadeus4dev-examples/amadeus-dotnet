@@ -1,4 +1,5 @@
 using amadeus;
+using amadeus.referenceData;
 using amadeus.resources;
 using Xunit;
 using static amadeus_integration_test.TestUtil;
@@ -37,6 +38,18 @@ namespace amadeus_integration_test
                     .with("airlineCodes", "BA"));
 
             Assert.All(airlines, item => Assert.Contains(item.type, "airline"));
+        }
+
+        [Fact]
+        public void Get_RecommendedLocations()
+        {
+            var amadeus = GetAmadeusBuild();
+            var rl = new RecommendedLocations(amadeus);
+            Location[] locations = rl.get(Params
+                    .with("cityCodes", "PAR"));
+
+            Assert.True(locations.Length == 5);
+            Assert.All(locations, item => Assert.Contains(item.type, "recommended-location"));
         }
     }
 }
