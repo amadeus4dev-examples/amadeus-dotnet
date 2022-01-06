@@ -11,7 +11,6 @@ namespace amadeus_integration_test
         public static Amadeus GetAmadeusBuild()
         {
             Configuration amadeusconfig = Amadeus.builder(Environment.GetEnvironmentVariable("key"), Environment.GetEnvironmentVariable("secret"));
-            Console.WriteLine("Key: " + Environment.GetEnvironmentVariable("key"));
             amadeusconfig.setLoglevel("debug");
             return amadeusconfig.build();
         }
