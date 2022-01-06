@@ -26,4 +26,4 @@ jobs:
           key: ${{ secrets.NET_API_KEY }}
           secret: ${{ secrets.NET_API_SECRET }}
     - name: Run UnitTests
-      run: vstest.console.exe .\amadeus-test\bin\Debug\netcoreapp3.1\amadeus-test.dll /TestAdapterPath:"."
+      run: vstest.console.exe .\amadeus-test\bin\Release\netcoreapp3.1\amadeus-test.dll
