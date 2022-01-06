@@ -35,12 +35,9 @@
     <Folder Include=".github\images\" />
     <Folder Include="client\" />
     <Folder Include="exceptions\" />
-    <Folder Include="resources\" />
-    <Folder Include="referenceData\" />
     <Folder Include="referenceData\urls\" />
     <Folder Include="referenceData\locations\" />
     <Folder Include="shopping\" />
-    <Folder Include="travel\" />
     <Folder Include="travel\analytics\" />
     <Folder Include="travel\analytics\airTraffic\" />
     <Folder Include="util\" />
