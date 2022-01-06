@@ -1,4 +1,5 @@
 ﻿using amadeus;
+using System;
 
 namespace amadeus_integration_test
 {
@@ -9,7 +10,7 @@ namespace amadeus_integration_test
 
         public static Amadeus GetAmadeusBuild()
         {
-            Configuration amadeusconfig = Amadeus.builder(API_KEY, API_SECRET);
+            Configuration amadeusconfig = Amadeus.builder(Environment.GetEnvironmentVariable("key"), Environment.GetEnvironmentVariable("secret"));
             amadeusconfig.setLoglevel("debug");
             return amadeusconfig.build();
         }
