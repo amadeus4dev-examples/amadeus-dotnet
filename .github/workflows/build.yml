@@ -20,6 +20,10 @@ jobs:
         msbuild amadeus-csharp.sln /p:platform="Any CPU" /p:Configuration=Release
     - name: Setup VSTest
       uses: darenm/Setup-VSTest@v1
+    - name: Add Env Variables IntegrationTests
+      with:
+          key: ${{ secrets.NET_API_KEY }}
+          secret: ${{ secrets.NET_API_SECRET }}
     - name: Run IntegrationTests
       run: vstest.console.exe .\amadeus-integration-test\bin\Release\netcoreapp2.1\amadeus-integration-test.dll
     - name: Run UnitTests
