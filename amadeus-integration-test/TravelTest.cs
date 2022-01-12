@@ -15,9 +15,9 @@ namespace amadeus_integration_test
             var tripPurpose = new TripPurpose(amadeus);
             Prediction prediction = tripPurpose.get(Params.with("originLocationCode", "NYC")
                 .and("destinationLocationCode", "MAD")
-                .and("departureDate", "2022-01-01")
-                .and("returnDate", "2022-01-06")
-                .and("searchDate", "2021-12-25"));
+                .and("departureDate", System.DateTime.Now.ToString("yyyy-MM-dd"))
+                .and("returnDate", System.DateTime.Now.ToString("yyyy-MM-dd"))
+                .and("searchDate", System.DateTime.Now.ToString("yyyy-MM-dd")));
 
             Assert.True(prediction != null);
             Assert.True(prediction.subType == "trip-purpose");
