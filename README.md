@@ -193,7 +193,7 @@ Amadeus amadeus = Amadeus
 ```
 
 ## List of supported endpoints
-```java
+```C#
 // Flight Inspiration Search
 FlightDestination[] flightDestinations = amadeus.shopping.flightDestinations.get(Params
   .with("origin", "MAD"));
@@ -222,6 +222,7 @@ Airline[] airlines = amadeus.referenceData.airlines.get(Params
 Location[] locations = amadeus.referenceData.locations.get(Params
   .with("keyword", "LON")
   .and("subType", Locations.ANY));
+  
 // Get a specific city or airport based on its id
 Location location = amadeus.referenceData
   .location("ALHR").get();
@@ -238,6 +239,7 @@ SearchedDestination searchedDestination = amadeus.travel.analytics.airTraffic.se
         .and("destinationCityCode", "NYC")
         .and("searchPeriod", "2017-08")
         .and("marketCountryCode", "ES"));
+        
 // How many people in Spain searched for a trip from Madrid to New-York in September 2017?
 Search[] search = amadeus.travel.analytics.airTraffic.searched.get(Params
         .with("originCityCode", "MAD")
@@ -260,14 +262,16 @@ Period[] busiestPeriods = amadeus.travel.analytics.airTraffic.busiestPeriod.get(
   .and("period", "2017")
   .and("direction", BusiestPeriod.ARRIVING));
 
-// Hotel Search API
+// Hotel Search
 // Get list of hotels by city code
 HotelOffer[] offers = amadeus.shopping.hotelOffers.get(Params
   .with("cityCode", "MAD"));
+  
 // Get list of offers for a specific hotel
 HotelOffer hotelOffer = amadeus.shopping.hotelOffersByHotel.get(Params.with("hotelId", "BGLONBGB"));
+
 // Confirm the availability of a specific offer
-HotelOffer offer = amadeus.shopping.hotelOffer("4BA070CE929E135B3268A9F2D0C51E9D4A6CF318BA10485322FA2C7E78C7852E").get();
+HotelOffer offer = amadeus.shopping.hotelOffer("NRPQNQBOJM").get();
 
 // Points of Interest
 // What are the popular places in Barcelona (based a geo location and a radius)
@@ -281,6 +285,31 @@ PointOfInterest[] pointsOfInterest = amadeus.referenceData.locations.pointsOfInt
     .and("west", "2.160873")
     .and("south", "41.394582")
     .and("east", "2.177181"));
+    
+// Travel Restrictions 
+DiseaseAreaReport restriction = travelRestrictions.get(Params.with("countryCode", "US"));
+
+// Safe Place 
+// Safe Place by coordinates 
+SafetyRatedLocation[] safeLocation = safePlace.getByGeoCode(Params
+    .with("latitude", "41.397158")
+    .and("longitude", "2.160873"));
+    
+// Safe Place by square 
+SafetyRatedLocation[] safeLocation = safePlace.getBySquare(Params
+    .with("north", "41.397158")
+    .and("west", "2.160873")
+    .and("south", "41.394582")
+    .and("east", "2.177181"));
+    
+// Safe Place by id 
+SafetyRatedLocation safeLocation = safePlace.getById(Params.with("safety-rated-locationId", "Q930402719"));
+
+// Trip Purpose Prediction
+Prediction prediction = tripPurpose.get(Params.with("originLocationCode", "NYC")
+    .and("destinationLocationCode", "MAD")
+    .and("departureDate", "2022-06-01")
+    .and("returnDate", "2022-06-06"));
 ```
 
 ## Development & Contributing
