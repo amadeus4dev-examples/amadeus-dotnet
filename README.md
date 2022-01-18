@@ -1,42 +1,34 @@
 # Amadeus Dotnet SDK
 
-[![Contact Support](https://github.com/amadeus4dev/amadeus-dotnet/raw/master/.github/images/support.svg?sanitize=true)][support]
-![GitHub issues](https://img.shields.io/github/issues/amadeus4dev/amadeus-dotnet)
-![GitHub](https://img.shields.io/github/license/amadeus4dev/amadeus-dotnet)
 ![Nuget](https://img.shields.io/nuget/v/amadeus-dotnet)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/amadeus4dev/amadeus-dotnet)
+[![Discord](https://img.shields.io/discord/696822960023011329?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/cVrFBqx)
 
-Amadeus provides a set of APIs for the travel industry. Flights, Hotels, Locations and more.
 
-For more details see the [C#
-documentation](https://amadeus4dev.github.io/amadeus-dotnet/) on
-[Amadeus.com](https://developers.amadeus.com).
+Amadeus provides a rich set of APIs for the travel industry. For more details, check out the [Amadeus for Developers portal](https://developers.amadeus.com)
 
 ## Installation
 
 You can install the SDK via NuGet packages installer, simple search for Amadeus SDK in package explorer.
 
-
 ## Getting Started
 
-To send make your first API call you will need to [register for an Amadeus
+To make your first API call you will need to [register for an Amadeus
 Developer Account](https://developers.amadeus.com/create-account) and set up
 your first application.
 
 ```C#
 using System;
-using System.IO;
-using System.Net;
-using System.Text;
 
 using amadeus;
 using amadeus.util;
 
 namespace amadeustest
+
+
 {
-    class MainClass
+    class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             GetLocations();
         }
