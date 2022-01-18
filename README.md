@@ -9,7 +9,7 @@ Amadeus provides a rich set of APIs for the travel industry. For more details, c
 
 ## Installation
 
-You can install the SDK via NuGet packages installer, simple search for Amadeus SDK in package explorer.
+You can install the `amadeus-dotnet` via NuGet packages installer, by searching for it in the package explorer.
 
 ## Getting Started
 
