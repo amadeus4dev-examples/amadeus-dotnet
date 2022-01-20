@@ -1,4 +1,6 @@
-﻿namespace amadeus.resources
+﻿using System.Collections.Generic;
+
+namespace amadeus.resources
 {
     /// <summary>
     /// An Stakeholder object.
@@ -32,6 +34,12 @@
         public string dateOfBirth { get; set; }
 
         /// <summary>
+        /// Gets or sets the gender.
+        /// </summary>
+        /// <value>The gender.</value>
+        public string gender { get; set; }
+
+        /// <summary>
         /// Gets or sets the age.
         /// </summary>
         /// <value>The age.</value>
@@ -42,5 +50,11 @@
         /// </summary>
         /// <value>The name.</value>
         public Name name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the documents.
+        /// </summary>
+        /// <value>The documents.</value>
+        public List<TravelerDocument> documents { get; set; }
     }
 }

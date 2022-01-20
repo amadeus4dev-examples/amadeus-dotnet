@@ -15,10 +15,10 @@ namespace amadeus_integration_test
         {
             var amadeus = GetAmadeusBuild();
             var safePlace = new SafePlace(amadeus);
-            SafetyRatedLocation[] safeLocation = safePlace.getByGeoCode(Params.with("latitude", "41.397158").and("longitude", "2.160873"));
+            SafetyRatedLocation[] response = safePlace.getByGeoCode(Params.with("latitude", "41.397158").and("longitude", "2.160873"));
 
-            Assert.True(safeLocation != null);
-            Assert.True(safeLocation[0].type == "safety-rated-location");
+            Assert.True(response != null);
+            Assert.True(response[0].type == "safety-rated-location");
         }
 
         [Fact]
@@ -26,10 +26,10 @@ namespace amadeus_integration_test
         {
             var amadeus = GetAmadeusBuild();
             var safePlace = new SafePlace(amadeus);
-            SafetyRatedLocation[] safeLocation = safePlace.getBySquare(Params.with("north", "41.397158").and("west", "2.160873").and("south", "41.394582").and("east", "2.177181"));
+            SafetyRatedLocation[] response = safePlace.getBySquare(Params.with("north", "41.397158").and("west", "2.160873").and("south", "41.394582").and("east", "2.177181"));
 
-            Assert.True(safeLocation != null);
-            Assert.True(safeLocation[0].type == "safety-rated-location");
+            Assert.True(response != null);
+            Assert.True(response[0].type == "safety-rated-location");
         }
 
 
@@ -38,10 +38,10 @@ namespace amadeus_integration_test
         {
             var amadeus = GetAmadeusBuild();
             var safePlace = new SafePlace(amadeus);
-            SafetyRatedLocation safeLocation = safePlace.getById(Params.with("safety-rated-locationId", "Q930402719"));
+            SafetyRatedLocation response = safePlace.getById(Params.with("safety-rated-locationId", "Q930402719"));
 
-            Assert.True(safeLocation != null);
-            Assert.True(safeLocation.type == "safety-rated-location");
+            Assert.True(response != null);
+            Assert.True(response.type == "safety-rated-location");
         }
     }
 }

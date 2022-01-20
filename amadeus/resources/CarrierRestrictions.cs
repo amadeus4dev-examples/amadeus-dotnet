@@ -9,7 +9,7 @@ namespace amadeus.resources
     /// </summary>
     public class CarrierRestrictions
     {
-        internal CarrierRestrictions() { }
+        public CarrierRestrictions() { }
 
         /// <summary>
         /// Gets or sets the type of the blacklistedInEUAllowed.

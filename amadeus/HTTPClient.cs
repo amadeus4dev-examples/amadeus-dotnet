@@ -66,6 +66,41 @@ namespace amadeus
         {
             return request(Constants.GET, path, _params);
         }
+        /// <summary>
+        /// <para>
+        /// A helper module for making generic DELETE _requests calls. It is used by
+        /// every namespaced API DELETE method.
+        /// </para>
+        /// <code>
+        /// amadeus.referenceData.urls.checkinLinks.delete(Params.with("airline", "1X"));
+        /// </code>
+        /// <para>
+        /// It can be used to make any generic API call that is automatically
+        /// authenticated using your API credentials:
+        /// </para>
+        /// <code>
+        /// amadeus.delete("/v2/reference-data/urls/checkin-links", Params.with("airline", "1X"))
+        /// </code>
+        /// </summary>
+        /// <returns>A Response object containing the status code, body, and parsed data.</returns>
+        /// <param name="path">path The full path for the API call</param>
+        /// <param name="_params">The optional DELETE params to pass to the API</param>
+        public virtual Response delete(string path, Params _params) 
+        {
+            return request(Constants.DELETE, path, _params);
+        }
+
+        /// <summary>
+        /// A helper module for making generic DELETE _requests calls. It is used by
+        /// every namespaced API DELETE method.
+        /// <see cref="delete(string, Params)"/>  
+        /// </summary>
+        /// <returns>Response</returns>
+        /// <param name="path">Path.</param>
+        public virtual Response delete(String path)
+        {
+            return request(Constants.DELETE, path, null);
+        }
 
         /// <summary>
         /// A helper module for making generic POST _requests calls. It is used by

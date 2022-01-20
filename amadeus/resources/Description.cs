@@ -12,6 +12,12 @@ namespace amadeus.resources
         internal Description() { }
 
         /// <summary>
+        /// Gets or sets the descriptionType.
+        /// </summary>
+        /// <value>The descriptionType.</value>
+        public string descriptionType { get; set; }
+
+        /// <summary>
         /// Gets or sets the text.
         /// </summary>
         /// <value>The text.</value>
