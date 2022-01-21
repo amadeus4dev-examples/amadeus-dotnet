@@ -90,7 +90,7 @@ namespace amadeus.travel.flightOffers
         {
             try
             {
-                Response response = client.post("/v1/booking/flight-orders", _params);
+                Response response = client.post("/v1/booking/flight-orders", _params, null);
                 return (FlightOrderCreateQuery[])Resource.fromArray(response, typeof(FlightOrderCreateQuery[]));
             }
             catch (ResponseException)

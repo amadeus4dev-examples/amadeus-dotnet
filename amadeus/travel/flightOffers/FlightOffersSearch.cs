@@ -87,7 +87,7 @@ namespace amadeus.travel.flightOffers
         {
             try
             {
-                Response response = client.post("/v2/shopping/flight-offers", _params);
+                Response response = client.post("/v2/shopping/flight-offers", _params, null);
                 return (FlightOffer[])Resource.fromArray(response, typeof(FlightOffer[]));
             }
             catch (ResponseException)

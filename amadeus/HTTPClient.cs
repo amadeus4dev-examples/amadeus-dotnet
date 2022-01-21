@@ -133,9 +133,9 @@ namespace amadeus
         /// <returns>A Response object containing the status code, body, and parsed data.</returns>
         /// <param name="path">The full path for the API call</param>
         /// <param name="_params">The optional POST params to pass to the API</param>
-        public virtual Response post(string path, Params _params)
+        public virtual Response post(string path, Params _params, string body)
         {
-            return request(Constants.POST, path, _params);
+            return request(Constants.POST, path, _params, body);
         }
 
         /// <summary>
@@ -146,6 +146,18 @@ namespace amadeus
         public virtual Response unauthenticatedRequest(string verb, string path, Params _params, string bearerToken)
         {
             Request _request = buildRequest(verb, path, _params, bearerToken);
+            log(_request);
+            return execute(_request);
+        }
+
+        /// <summary>
+        /// A generic method for making any authenticated or unauthenticated _request,
+        /// passing in the bearer token explicitly. Used primarily by the
+        /// AccessToken to get the first AccessToken.
+        /// </summary>
+        public virtual Response unauthenticatedRequest(string verb, string path, Params _params, string body, string bearerToken)
+        {
+            Request _request = buildRequest(verb, path, _params, body, bearerToken);
             log(_request);
             return execute(_request);
         }
@@ -237,10 +249,22 @@ namespace amadeus
             return unauthenticatedRequest(verb, path, _params, accessToken.getBearerToken());
         }
 
+        // A generic method for making _requests of any verb.
+        internal Response request(String verb, String path, Params _params, string body)
+        {
+            return unauthenticatedRequest(verb, path, _params, body, accessToken.getBearerToken());
+        }
+
         // Builds a _request
         internal Request buildRequest(String verb, String path, Params _params, String bearerToken)
         {
             return new Request(verb, path, _params, bearerToken, this);
+        }
+
+        // Builds a _request
+        internal Request buildRequest(String verb, String path, Params _params, string body, String bearerToken)
+        {
+            return new Request(verb, path, _params, body, bearerToken, this);
         }
 
         // A simple log that only triggers if we are in debug mode

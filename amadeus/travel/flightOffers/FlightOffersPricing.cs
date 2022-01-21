@@ -45,7 +45,10 @@ namespace amadeus.travel.flightOffers
         {
             try
             {
-                Response response = client.post("/v1/shopping/flight-offers/pricing", _params);
+                var parameters = _params.GetEnumerator();
+                parameters.MoveNext();
+                var body = parameters.Current;
+                Response response = client.post("/v1/shopping/flight-offers/pricing", null, body.Value);
 
                 return (FlightOfferPricingOutput[])Resource.fromArray(response, typeof(FlightOfferPricingOutput[]));
             }

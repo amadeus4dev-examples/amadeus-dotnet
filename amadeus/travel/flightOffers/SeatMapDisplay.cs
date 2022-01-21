@@ -87,7 +87,7 @@ namespace amadeus.travel.flightOffers
         {
             try
             {
-                Response response = client.post("/v1/shopping/seatmaps", _params);
+                Response response = client.post("/v1/shopping/seatmaps", _params, null);
                 return (SeatMap[])Resource.fromArray(response, typeof(SeatMap[]));
             }
             catch (ResponseException)

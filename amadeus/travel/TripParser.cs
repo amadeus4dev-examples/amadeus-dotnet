@@ -38,7 +38,7 @@ namespace amadeus.travel
         {
             try
             {
-                Response response = client.post("/v3/travel/trip-parser", _params);
+                Response response = client.post("/v3/travel/trip-parser", _params, null);
                 return (TripDetail) Resource.fromObject(response, typeof(TripDetail));
             }
             catch (ResponseException)
