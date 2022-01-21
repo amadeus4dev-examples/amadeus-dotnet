@@ -93,7 +93,7 @@ namespace amadeus.resources
         /// Gets or sets the type of the aircraftCabinAmenities.
         /// </summary>
         /// <value>The type of the aircraftCabinAmenities.</value>
-        public List<AircraftCabinAmenities> aircraftCabinAmenities { get; set; }
+        public AircraftCabinAmenities aircraftCabinAmenities { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the availableSeatsCounters.

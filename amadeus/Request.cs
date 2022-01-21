@@ -176,6 +176,35 @@ namespace amadeus
             prepareHeaders();
         }
 
+        /// <summary>
+        /// Initializes a new instance of the Request class.
+        /// </summary>
+        /// <param name="verb">Verb.</param>
+        /// <param name="path">Path.</param>
+        /// <param name="body">Parameters.</param>
+        /// <param name="bearerToken">Bearer token.</param>
+        /// <param name="client">Client.</param>
+        public Request(string verb, string path, string body, string bearerToken, HTTPClient client)
+        {
+            Configuration config = client.configuration;
+
+            this.verb = verb;
+            this.host = config.host;
+            this.path = path;
+            this.body = body;
+            this.bearerToken = bearerToken;
+            this.languageVersion = typeof(string).Assembly.ImageRuntimeVersion;
+            this.clientVersion = Amadeus.VERSION;
+            this.appId = config.customAppId;
+            this.appVersion = config.customAppVersion;
+            this.port = config.port;
+            this.ssl = config.ssl;
+
+            determineScheme();
+            prepareUrl();
+            prepareHeaders();
+        }
+
 
         /// <summary>
         /// Establishs the connection.

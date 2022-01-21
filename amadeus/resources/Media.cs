@@ -33,6 +33,6 @@ namespace amadeus.resources
         /// Gets or sets the type of the mediaType.
         /// </summary>
         /// <value>The type of the mediaType.</value>
-        public int mediaType { get; set; }
+        public string mediaType { get; set; }
     }
 }

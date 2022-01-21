@@ -41,13 +41,13 @@ namespace amadeus.travel.flightOffers
         /// </summary>
         /// <returns>an API response object</returns>
         /// <param name="_params">body the parameters to send to the API as a JSonObject</param>
-        public FlightOfferPricingOutput[] postFlightOffersPricing(Params _params, string body)
+        public FlightOfferPricingOutput postFlightOffersPricing(Params _params, string body)
         {
             try
             {
                 Response response = client.post("/v1/shopping/flight-offers/pricing", _params, body);
 
-                return (FlightOfferPricingOutput[])Resource.fromArray(response, typeof(FlightOfferPricingOutput[]));
+                return (FlightOfferPricingOutput)Resource.fromObject(response, typeof(FlightOfferPricingOutput));
             }
             catch (ResponseException)
             {
@@ -60,7 +60,7 @@ namespace amadeus.travel.flightOffers
         /// <see cref="postFlightOffersPricing(Params)"/>
         /// </summary>
         /// <returns>an API response object</returns>
-        public FlightOfferPricingOutput[] postFlightOffersPricing()
+        public FlightOfferPricingOutput postFlightOffersPricing()
         {
             try
             {

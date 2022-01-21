@@ -85,13 +85,13 @@ namespace amadeus.travel.flightOffers
         /// </code>
         /// </summary>
         /// <returns>an API response object</returns>
-        /// <param name="_params">body the parameters to send to the API as a JSonObject</param>
-        public FlightOrderCreateQuery[] postFlightOrderManagement(Params _params, string body)
+        /// <param name="body">body the parameters to send to the API as a JSonObject</param>
+        public FlightOrderCreateQuery postFlightOrderManagement(string body)
         {
             try
             {
-                Response response = client.post("/v1/booking/flight-orders", _params, body);
-                return (FlightOrderCreateQuery[])Resource.fromArray(response, typeof(FlightOrderCreateQuery[]));
+                Response response = client.post("/v1/booking/flight-orders", body);
+                return (FlightOrderCreateQuery)Resource.fromObject(response, typeof(FlightOrderCreateQuery));
             }
             catch (ResponseException)
             {
@@ -101,14 +101,14 @@ namespace amadeus.travel.flightOffers
 
         /// <summary>
         /// Convenience method for calling <code>post</code> without any parameters.
-        /// <see cref="postFlightOrderManagement(Params)"/>
+        /// <see cref="postFlightOrderManagement(string)"/>
         /// </summary>
         /// <returns>an API response object</returns>
-        public FlightOrderCreateQuery[] postFlightOrderManagement()
+        public FlightOrderCreateQuery postFlightOrderManagement()
         {
             try
             {
-                return postFlightOrderManagement(null, null);
+                return postFlightOrderManagement(null);
             }
             catch (ResponseException)
             {

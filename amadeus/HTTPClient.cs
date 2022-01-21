@@ -132,6 +132,30 @@ namespace amadeus
         /// </summary>
         /// <returns>A Response object containing the status code, body, and parsed data.</returns>
         /// <param name="path">The full path for the API call</param>
+        /// <param name="body">The optional POST params to pass to the API</param>
+        public virtual Response post(string path, string body)
+        {
+            return requestWithBody(Constants.POST, path, body);
+        }
+
+        /// <summary>
+        /// <para>
+        /// A helper module for making generic POST _requests calls. It is used by
+        /// every namespaced API POST method.
+        /// </para>
+        /// <code>
+        /// amadeus.foo.bar.post(Params.with("airline", "1X"));
+        /// </code>
+        /// <para>
+        /// It can be used to make any generic API call that is automatically
+        /// authenticated using your API credentials:
+        /// </para>
+        /// <code>
+        /// amadeus.post("/v1/foo/bar", Params.with("airline", "1X"));
+        /// </code>
+        /// </summary>
+        /// <returns>A Response object containing the status code, body, and parsed data.</returns>
+        /// <param name="path">The full path for the API call</param>
         /// <param name="_params">The optional POST params to pass to the API</param>
         public virtual Response post(string path, Params _params, string body)
         {
@@ -146,6 +170,18 @@ namespace amadeus
         public virtual Response unauthenticatedRequest(string verb, string path, Params _params, string bearerToken)
         {
             Request _request = buildRequest(verb, path, _params, bearerToken);
+            log(_request);
+            return execute(_request);
+        }
+
+        /// <summary>
+        /// A generic method for making any authenticated or unauthenticated _request,
+        /// passing in the bearer token explicitly. Used primarily by the
+        /// AccessToken to get the first AccessToken.
+        /// </summary>
+        public virtual Response unauthenticatedRequest(string verb, string path, string body, string bearerToken)
+        {
+            Request _request = buildRequest(verb, path, body, bearerToken);
             log(_request);
             return execute(_request);
         }
@@ -244,13 +280,19 @@ namespace amadeus
         }
 
         // A generic method for making _requests of any verb.
+        internal Response requestWithBody(String verb, String path, String body)
+        {
+            return unauthenticatedRequest(verb, path, body, accessToken.getBearerToken());
+        }
+
+        // A generic method for making _requests of any verb.
         internal Response request(String verb, String path, Params _params)
         {
             return unauthenticatedRequest(verb, path, _params, accessToken.getBearerToken());
         }
 
         // A generic method for making _requests of any verb.
-        internal Response request(String verb, String path, Params _params, string body)
+        internal Response request(String verb, String path, Params _params, String body)
         {
             return unauthenticatedRequest(verb, path, _params, body, accessToken.getBearerToken());
         }
@@ -262,7 +304,13 @@ namespace amadeus
         }
 
         // Builds a _request
-        internal Request buildRequest(String verb, String path, Params _params, string body, String bearerToken)
+        internal Request buildRequest(String verb, String path, String body, String bearerToken)
+        {
+            return new Request(verb, path, body, bearerToken, this);
+        }
+
+        // Builds a _request
+        internal Request buildRequest(String verb, String path, Params _params, String body, String bearerToken)
         {
             return new Request(verb, path, _params, body, bearerToken, this);
         }
@@ -304,7 +352,7 @@ namespace amadeus
         // Writes the parameters to the _request.
         private void write(Request _request)
         {
-            if (_request.verb == Constants.POST & _request._params != null)
+            if (_request.verb == Constants.POST & _request._params != null & _request.body == null)
             {
                 var postData = _request._params.toQueryString();
                 var data = Encoding.UTF8.GetBytes(postData);
@@ -313,7 +361,21 @@ namespace amadeus
                 {
                     stream.Write(data, 0, data.Length);
                 }
+
             }
+
+            if (_request.verb == Constants.POST & _request.body != null & _request.bearerToken != null)
+            {
+                var postData = _request.body;
+                var data = Encoding.UTF8.GetBytes(postData);
+                _request.connection.ContentType = "application/json";
+                _request.connection.ContentLength = data.Length;
+                using (var stream = _request.connection.GetRequestStream())
+                {
+                    stream.Write(data, 0, data.Length);
+                }
+            }
+
         }
 
         // Fetches the response for another page.
