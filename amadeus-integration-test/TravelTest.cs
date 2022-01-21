@@ -13,15 +13,15 @@ namespace amadeus_integration_test
         {
             var amadeus = GetAmadeusBuild();
             var tripPurpose = new TripPurpose(amadeus);
-            Prediction prediction = tripPurpose.get(Params.with("originLocationCode", "NYC")
+            Prediction response = tripPurpose.get(Params.with("originLocationCode", "NYC")
                 .and("destinationLocationCode", "MAD")
-                .and("departureDate", System.DateTime.Now.ToString("yyyy-MM-dd"))
-                .and("returnDate", System.DateTime.Now.ToString("yyyy-MM-dd"))
-                .and("searchDate", System.DateTime.Now.ToString("yyyy-MM-dd")));
+                .and("departureDate", System.DateTime.Now.AddMonths(2).ToString("yyyy-MM-dd"))
+                .and("returnDate", System.DateTime.Now.AddMonths(2).ToString("yyyy-MM-dd"))
+                .and("searchDate", System.DateTime.Now.AddMonths(2).ToString("yyyy-MM-dd")));
 
-            Assert.True(prediction != null);
-            Assert.True(prediction.subType == "trip-purpose");
-            Assert.True(prediction.type == "prediction");
+            Assert.True(response != null);
+            Assert.True(response.subType == "trip-purpose");
+            Assert.True(response.type == "prediction");
         }
     }
 }

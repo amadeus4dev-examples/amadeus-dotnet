@@ -9,7 +9,7 @@ namespace amadeus.resources
     /// </summary>
     public class ConnectionPoints
     {
-        internal ConnectionPoints() { }
+        public ConnectionPoints() { }
 
         /// <summary>
         /// Gets or sets the type of the title.

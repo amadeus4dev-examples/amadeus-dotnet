@@ -12,6 +12,30 @@ namespace amadeus.resources
         internal Price() { }
 
         /// <summary>
+        /// Gets or sets the margin.
+        /// </summary>
+        /// <value>The margin.</value>
+        public string margin { get; set; }
+
+        /// <summary>
+        /// Gets or sets the grandTotal.
+        /// </summary>
+        /// <value>The grandTotal.</value>
+        public string grandTotal { get; set; }
+
+        /// <summary>
+        /// Gets or sets the billingCurrency.
+        /// </summary>
+        /// <value>The billingCurrency.</value>
+        public string billingCurrency { get; set; }
+
+        /// <summary>
+        /// Gets or sets the additionalServices.
+        /// </summary>
+        /// <value>The additionalServices.</value>
+        public List<AdditionalService> additionalServices { get; set; }
+
+        /// <summary>
         /// Gets or sets the currency.
         /// </summary>
         /// <value>The currency.</value>
@@ -30,9 +54,21 @@ namespace amadeus.resources
         public string Base { get; set; }
 
         /// <summary>
-        /// Gets or sets the totalTaxes.
+        /// Gets or sets the fees.
         /// </summary>
-        /// <value>The totalTaxes.</value>
-        public string totalTaxes { get; set; }
+        /// <value>The fees.</value>
+        public List<Fee> fees { get; set; }
+
+        /// <summary>
+        /// Gets or sets the taxes.
+        /// </summary>
+        /// <value>The taxes.</value>
+        public List<Tax> taxes { get; set; }
+
+        /// <summary>
+        /// Gets or sets the refundableTaxes.
+        /// </summary>
+        /// <value>The refundableTaxes.</value>
+        public string refundableTaxes { get; set; }
     }
 }

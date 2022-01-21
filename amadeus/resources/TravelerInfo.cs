@@ -9,7 +9,7 @@ namespace amadeus.resources
     /// </summary>
     public class TravelerInfo
     {
-        internal TravelerInfo() { }
+        public TravelerInfo() { }
 
         /// <summary>
         /// Gets or sets the type of the id.

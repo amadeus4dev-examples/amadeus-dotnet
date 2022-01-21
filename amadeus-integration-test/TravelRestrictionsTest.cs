@@ -13,10 +13,10 @@ namespace amadeus_integration_test
         {
             var amadeus = GetAmadeusBuild();
             var travelRestrictions = new TravelRestrictions(amadeus);
-            DiseaseAreaReport restriction = travelRestrictions.get(Params.with("countryCode", "US"));
+            DiseaseAreaReport response = travelRestrictions.get(Params.with("countryCode", "US"));
 
-            Assert.True(restriction != null);
-            Assert.True(restriction.type == "covid19-area-report");
+            Assert.True(response != null);
+            Assert.True(response.type == "covid19-area-report");
         }
     }
 }

@@ -91,7 +91,7 @@ namespace amadeustest
         {
             Configuration configution = Amadeus.builder("123", "234");
             Amadeus amadeus = configution.build();
-            Request request = new Request("GET", "/foo/bar", null, null, amadeus);
+            Request request = new Request("GET", "/foo/bar", new Params(), null, amadeus);
 
             Assert.IsTrue(request.uri == "https://test.api.amadeus.com:443/foo/bar?");
         }
@@ -113,7 +113,7 @@ namespace amadeustest
             Configuration configution = Amadeus.builder("123", "234");
             Amadeus amadeus = configution.build();
             Params _params = Params.with("foo", "bar");
-            Request request = new Request("POST", "/v1/security/oauth2/token", null, null, amadeus);
+            Request request = new Request("POST", "/v1/security/oauth2/token", new Params(), null, amadeus);
             request.establishConnection();
             Assert.IsNotNull(request.connection);
         }

@@ -1,4 +1,6 @@
-﻿namespace amadeus.resources
+﻿using System.Collections.Generic;
+
+namespace amadeus.resources
 {
     /// <summary>
     /// An Address object.
@@ -17,7 +19,7 @@
         /// Gets or sets the lines.
         /// </summary>
         /// <value>The lines.</value>
-        public string[] lines { get; set; }
+        public List<string> lines { get; set; }
 
         /// <summary>
         /// Gets or sets the postalCode.
@@ -60,5 +62,11 @@
         /// </summary>
         /// <value>The state.</value>
         public string state { get; set; }
+
+        /// <summary>
+        /// Gets or sets the stateName.
+        /// </summary>
+        /// <value>The stateName.</value>
+        public string stateName { get; set; }
     }
 }

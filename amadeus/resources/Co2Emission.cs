@@ -27,6 +27,6 @@ namespace amadeus.resources
         /// Gets or sets the type of the cabin.
         /// </summary>
         /// <value>The type of the cabin.</value>
-        public TravelClass<string> cabin { get; set; }
+        public string cabin { get; set; }
     }
 }

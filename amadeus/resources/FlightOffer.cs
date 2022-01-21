@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using amadeus.resources;
 using amadeus.shopping;
 
@@ -27,336 +28,82 @@ namespace amadeus.resources
         public string id { get; set; }
 
         /// <summary>
-        /// Gets or sets the offer items.
+        /// Gets or sets the source.
         /// </summary>
-        /// <value>The offer items.</value>
-        public OfferItem[] offerItems { get; set; }
+        /// <value>The source.</value>
+        public string source { get; set; }
 
         /// <summary>
-        /// An FlightOffer-related object as returned by the FlightOffers API.
-        /// <see cref="FlightOffers.get()"/>
+        /// Gets or sets the instantTicketingRequired.
         /// </summary>
-        public class OfferItem
-        {
-
-            internal OfferItem() { }
-
-            /// <summary>
-            /// Gets or sets the services.
-            /// </summary>
-            /// <value>The services.</value>
-            public Service[] services { get; set; }
-
-            /// <summary>
-            /// Gets or sets the price.
-            /// </summary>
-            /// <value>The price.</value>
-            public Price price { get; set; }
-
-            /// <summary>
-            /// Gets or sets the price per adult.
-            /// </summary>
-            /// <value>The price per adult.</value>
-            public Price pricePerAdult { get; set; }
-
-            /// <summary>
-            /// Gets or sets the price per infant.
-            /// </summary>
-            /// <value>The price per infant.</value>
-            public Price pricePerInfant { get; set; }
-
-            /// <summary>
-            /// Gets or sets the price per child.
-            /// </summary>
-            /// <value>The price per child.</value>
-            public Price pricePerChild { get; set; }
-
-            /// <summary>
-            /// Gets or sets the price per senior.
-            /// </summary>
-            /// <value>The price per senior.</value>
-            public Price pricePerSenior { get; set; }
-
-        }
+        /// <value>The instantTicketingRequired.</value>
+        public bool instantTicketingRequired { get; set; }
 
         /// <summary>
-        /// An FlightOffer-related object as returned by the FlightOffers API.
-        /// <see cref="FlightOffers.get()"/>
+        /// Gets or sets the disablePricing.
         /// </summary>
-        public class Service
-        {
-
-            internal Service() { }
-
-            /// <summary>
-            /// Gets or sets the segments.
-            /// </summary>
-            /// <value>The segments.</value>
-            public Segment[] segments { get; set; }
-
-        }
+        /// <value>The disablePricing.</value>
+        public bool disablePricing { get; set; }
 
         /// <summary>
-        /// An FlightOffer-related object as returned by the FlightOffers API.
-        /// <see cref="FlightOffers.get()"/>
+        /// Gets or sets the nonHomogeneous.
         /// </summary>
-        public class Segment
-        {
-
-            internal Segment() { }
-
-            /// <summary>
-            /// Gets or sets the flight segment.
-            /// </summary>
-            /// <value>The flight segment.</value>
-            public FlightSegment flightSegment { get; set; }
-
-            /// <summary>
-            /// Gets or sets the pricing detail per adult.
-            /// </summary>
-            /// <value>The pricing detail per adult.</value>
-            public PricingDetail pricingDetailPerAdult { get; set; }
-
-            /// <summary>
-            /// Gets or sets the pricing detail per infant.
-            /// </summary>
-            /// <value>The pricing detail per infant.</value>
-            public PricingDetail pricingDetailPerInfant { get; set; }
-
-            /// <summary>
-            /// Gets or sets the pricing detail per child.
-            /// </summary>
-            /// <value>The pricing detail per child.</value>
-            public PricingDetail pricingDetailPerChild { get; set; }
-
-            /// <summary>
-            /// Gets or sets the pricing detail per senior.
-            /// </summary>
-            /// <value>The pricing detail per senior.</value>
-            public PricingDetail pricingDetailPerSenior { get; set; }
-
-        }
+        /// <value>The nonHomogeneous.</value>
+        public bool nonHomogeneous { get; set; }
 
         /// <summary>
-        /// An FlightOffer-related object as returned by the FlightOffers API.
-        /// <see cref="FlightOffers.get()"/>
+        /// Gets or sets the oneWay.
         /// </summary>
-        public class FlightSegment
-        {
-
-            internal FlightSegment() { }
-
-            /// <summary>
-            /// Gets or sets the departure.
-            /// </summary>
-            /// <value>The departure.</value>
-            public FlightEndPoint departure { get; set; }
-
-            /// <summary>
-            /// Gets or sets the arrival.
-            /// </summary>
-            /// <value>The arrival.</value>
-            public FlightEndPoint arrival { get; set; }
-
-            /// <summary>
-            /// Gets or sets the carrier code.
-            /// </summary>
-            /// <value>The carrier code.</value>
-            public string carrierCode { get; set; }
-
-            /// <summary>
-            /// Gets or sets the number.
-            /// </summary>
-            /// <value>The number.</value>
-            public string number { get; set; }
-
-            /// <summary>
-            /// Gets or sets the operating.
-            /// </summary>
-            /// <value>The operating.</value>
-            public OperatingFlight operating { get; set; }
-
-            /// <summary>
-            /// Gets or sets the duration.
-            /// </summary>
-            /// <value>The duration.</value>
-            public string duration { get; set; }
-
-            /// <summary>
-            /// Gets or sets the stops.
-            /// </summary>
-            /// <value>The stops.</value>
-            public FlightStop[] stops { get; set; }
-
-        }
+        /// <value>The oneWay.</value>
+        public bool oneWay { get; set; }
 
         /// <summary>
-        /// An FlightOffer-related object as returned by the FlightOffers API.
-        /// <see cref="FlightOffers.get()"/>
+        /// Gets or sets the paymentCardRequired.
         /// </summary>
-        public class FlightEndPoint
-        {
-
-            internal FlightEndPoint() { }
-
-            /// <summary>
-            /// Gets or sets the iata code.
-            /// </summary>
-            /// <value>The iata code.</value>
-            public string iataCode { get; set; }
-
-            /// <summary>
-            /// Gets or sets the terminal.
-            /// </summary>
-            /// <value>The terminal.</value>
-            public string terminal { get; set; }
-
-            /// <summary>
-            /// Gets or sets at.
-            /// </summary>
-            /// <value>At.</value>
-            public string at { get; set; }
-
-        }
+        /// <value>The paymentCardRequired.</value>
+        public bool paymentCardRequired { get; set; }
 
         /// <summary>
-        /// An FlightOffer-related object as returned by the FlightOffers API.
-        /// <see cref="FlightOffers.get()"/>
+        /// Gets or sets the lastTicketingDate.
         /// </summary>
-        public class OperatingFlight
-        {
-
-            internal OperatingFlight() { }
-
-            /// <summary>
-            /// Gets or sets the carrier code.
-            /// </summary>
-            /// <value>The carrier code.</value>
-            public string carrierCode { get; set; }
-
-            /// <summary>
-            /// Gets or sets the number.
-            /// </summary>
-            /// <value>The number.</value>
-            public string number { get; set; }
-
-        }
+        /// <value>The lastTicketingDate.</value>
+        public string lastTicketingDate { get; set; }
 
         /// <summary>
-        /// An FlightOffer-related object as returned by the FlightOffers API.
-        /// <see cref="FlightOffers.get()"/>
+        /// Gets or sets the numberOfBookableSeats.
         /// </summary>
-        public class FlightStop
-        {
-
-            internal FlightStop() { }
-
-            /// <summary>
-            /// Gets or sets the iata code.
-            /// </summary>
-            /// <value>The iata code.</value>
-            public string iataCode { get; set; }
-
-            /// <summary>
-            /// Gets or sets the new aircraft.
-            /// </summary>
-            /// <value>The new aircraft.</value>
-            public AircraftEquipment newAircraft { get; set; }
-
-            /// <summary>
-            /// Gets or sets the duration.
-            /// </summary>
-            /// <value>The duration.</value>
-            public string duration { get; set; }
-
-            /// <summary>
-            /// Gets or sets the arrival at.
-            /// </summary>
-            /// <value>The arrival at.</value>
-            public DateTime arrivalAt { get; set; }
-
-            /// <summary>
-            /// Gets or sets the departure at.
-            /// </summary>
-            /// <value>The departure at.</value>
-            public DateTime departureAt { get; set; }
-
-        }
+        /// <value>The numberOfBookableSeats.</value>
+        public int numberOfBookableSeats { get; set; }
 
         /// <summary>
-        /// An FlightOffer-related object as returned by the FlightOffers API.
-        /// <see cref="FlightOffers.get()"/>
+        /// Gets or sets the itineraries.
         /// </summary>
-        public class AircraftEquipment
-        {
-
-            internal AircraftEquipment() { }
-
-            /// <summary>
-            /// Gets or sets the code.
-            /// </summary>
-            /// <value>The code.</value>
-            public string code { get; set; }
-
-        }
+        /// <value>The itineraries.</value>
+        public List<Itineraries> itineraries { get; set; }
 
         /// <summary>
-        /// An FlightOffer-related object as returned by the FlightOffers API.
-        /// <see cref="FlightOffers.get()"/>
+        /// Gets or sets the price.
         /// </summary>
-        public class Price
-        {
-
-            internal Price() { }
-
-            /// <summary>
-            /// Gets or sets the total.
-            /// </summary>
-            /// <value>The total.</value>
-            public double total { get; set; }
-
-            /// <summary>
-            /// Gets or sets the total taxes.
-            /// </summary>
-            /// <value>The total taxes.</value>
-            public double totalTaxes { get; set; }
-
-        }
+        /// <value>The price.</value>
+        public Price price { get; set; }
 
         /// <summary>
-        /// An FlightOffer-related object as returned by the FlightOffers API.
-        /// <see cref="FlightOffers.get()"/>
+        /// Gets or sets the pricingOptions.
         /// </summary>
-        public class PricingDetail
-        {
+        /// <value>The pricingOptions.</value>
+        public PricingOptions pricingOptions { get; set; }
 
-            internal PricingDetail() { }
+        /// <summary>
+        /// Gets or sets the validatingAirlineCodes.
+        /// </summary>
+        /// <value>The validatingAirlineCodes.</value>
+        public List<string> validatingAirlineCodes { get; set; }
 
-            /// <summary>
-            /// Gets or sets the travel class.
-            /// </summary>
-            /// <value>The travel class.</value>
-            public string travelClass { get; set; }
-
-            /// <summary>
-            /// Gets or sets the fare class.
-            /// </summary>
-            /// <value>The fare class.</value>
-            public string fareClass { get; set; }
-
-            /// <summary>
-            /// Gets or sets the availability.
-            /// </summary>
-            /// <value>The availability.</value>
-            public int availability { get; set; }
-
-            /// <summary>
-            /// Gets or sets the fare basis.
-            /// </summary>
-            /// <value>The fare basis.</value>
-            public string fareBasis { get; set; }
-
-        }
+        /// <summary>
+        /// Gets or sets the travelerPricings.
+        /// </summary>
+        /// <value>The travelerPricings.</value>
+        public List<TravelerPricing> travelerPricings { get; set; }
     }
 
 }

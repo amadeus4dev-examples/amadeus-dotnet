@@ -38,6 +38,12 @@ namespace amadeus
         public string path { get; set; }
 
         /// <summary>
+        /// The body use for API calls.
+        /// </summary>
+        /// <value>The body.</value>
+        public string body { get; set; }
+
+        /// <summary>
         /// The params to send to the API endpoint.
         /// </summary>
         /// <value>The parameters.</value>
@@ -126,6 +132,66 @@ namespace amadeus
             this.host = config.host;
             this.path = path;
             this._params = _params;
+            this.bearerToken = bearerToken;
+            this.languageVersion = typeof(string).Assembly.ImageRuntimeVersion;
+            this.clientVersion = Amadeus.VERSION;
+            this.appId = config.customAppId;
+            this.appVersion = config.customAppVersion;
+            this.port = config.port;
+            this.ssl = config.ssl;
+
+            determineScheme();
+            prepareUrl();
+            prepareHeaders();
+        }
+
+
+        /// <summary>
+        /// Initializes a new instance of the Request class.
+        /// </summary>
+        /// <param name="verb">Verb.</param>
+        /// <param name="path">Path.</param>
+        /// <param name="_params">Parameters.</param>
+        /// <param name="bearerToken">Bearer token.</param>
+        /// <param name="client">Client.</param>
+        public Request(string verb, string path, Params _params, string body, string bearerToken, HTTPClient client)
+        {
+            Configuration config = client.configuration;
+
+            this.verb = verb;
+            this.host = config.host;
+            this.path = path;
+            this.body = body;
+            this._params = _params;
+            this.bearerToken = bearerToken;
+            this.languageVersion = typeof(string).Assembly.ImageRuntimeVersion;
+            this.clientVersion = Amadeus.VERSION;
+            this.appId = config.customAppId;
+            this.appVersion = config.customAppVersion;
+            this.port = config.port;
+            this.ssl = config.ssl;
+
+            determineScheme();
+            prepareUrl();
+            prepareHeaders();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the Request class.
+        /// </summary>
+        /// <param name="verb">Verb.</param>
+        /// <param name="path">Path.</param>
+        /// <param name="body">Parameters.</param>
+        /// <param name="bearerToken">Bearer token.</param>
+        /// <param name="client">Client.</param>
+        public Request(string verb, string path, string body, string bearerToken, HTTPClient client)
+        {
+            Configuration config = client.configuration;
+
+            this.verb = verb;
+            this.host = config.host;
+            this.path = path;
+            this.body = body;
             this.bearerToken = bearerToken;
             this.languageVersion = typeof(string).Assembly.ImageRuntimeVersion;
             this.clientVersion = Amadeus.VERSION;

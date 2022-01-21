@@ -27,6 +27,24 @@ namespace amadeus.resources
         /// Gets or sets the type of the associationRefs.
         /// </summary>
         /// <value>The type of the associationRefs.</value>
-        public AssociationRef[] associationRefs { get; set; }
+        public List<AssociationRef> associationRefs { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type of the characteristicsCodes.
+        /// </summary>
+        /// <value>The type of the characteristicsCodes.</value>
+        public List<string> characteristicsCodes { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type of the travelerPricing.
+        /// </summary>
+        /// <value>The type of the travelerPricing.</value>
+        public List<SeatmapTravelerPricing> travelerPricing { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type of the coordinates.
+        /// </summary>
+        /// <value>The type of the coordinates.</value>
+        public Coordinates coordinates { get; set; }
     }
 }

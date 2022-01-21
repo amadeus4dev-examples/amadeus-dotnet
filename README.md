@@ -192,12 +192,6 @@ FlightDate[] flightDates = amadeus.shopping.flightDates.get(Params
   .with("origin", "MAD")
   .and("destination", "MUC"));
 
-// Flight Low-fare Search
-FlightOffer[] flightOffers = amadeus.shopping.flightOffers.get(Params
-  .with("origin", "NYC")
-  .and("destination", "MAD")
-  .and("departureDate", "2019-08-01"));
-
 // Flight Check-in Links
 CheckinLink[] checkinLinks = amadeus.referenceData.urls.checkinLinks.get(Params
   .with("airlineCode", "BA"));

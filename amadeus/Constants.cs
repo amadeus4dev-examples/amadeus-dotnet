@@ -17,6 +17,11 @@ namespace resources
         public const string GET = "GET";
 
         /// <summary>
+        /// The get.
+        /// </summary>
+        public const string DELETE = "DELETE";
+
+        /// <summary>
         /// The post.
         /// </summary>
         public const string POST = "POST";

@@ -32,6 +32,12 @@
         public string middleName { get; set; }
 
         /// <summary>
+        /// Gets or sets the secondLastName.
+        /// </summary>
+        /// <value>The secondLastName.</value>
+        public string secondLastName { get; set; }
+
+        /// <summary>
         /// Gets or sets the prefix.
         /// </summary>
         /// <value>The prefix.</value>
