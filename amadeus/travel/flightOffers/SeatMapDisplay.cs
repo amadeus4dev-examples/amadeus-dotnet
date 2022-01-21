@@ -83,11 +83,11 @@ namespace amadeus.travel.flightOffers
         /// </summary>
         /// <returns>an API response object</returns>
         /// <param name="_params">body the parameters to send to the API as a JSonObject</param>
-        public SeatMap[] postSeatMap(Params _params)
+        public SeatMap[] postSeatMap(Params _params, string body)
         {
             try
             {
-                Response response = client.post("/v1/shopping/seatmaps", _params, null);
+                Response response = client.post("/v1/shopping/seatmaps", _params, body);
                 return (SeatMap[])Resource.fromArray(response, typeof(SeatMap[]));
             }
             catch (ResponseException)
@@ -105,7 +105,7 @@ namespace amadeus.travel.flightOffers
         {
             try
             {
-                return postSeatMap(null);
+                return postSeatMap(null, null);
             }
             catch (ResponseException)
             {

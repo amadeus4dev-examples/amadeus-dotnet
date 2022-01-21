@@ -41,14 +41,11 @@ namespace amadeus.travel.flightOffers
         /// </summary>
         /// <returns>an API response object</returns>
         /// <param name="_params">body the parameters to send to the API as a JSonObject</param>
-        public FlightOfferPricingOutput[] postFlightOffersPricing(Params _params)
+        public FlightOfferPricingOutput[] postFlightOffersPricing(Params _params, string body)
         {
             try
             {
-                var parameters = _params.GetEnumerator();
-                parameters.MoveNext();
-                var body = parameters.Current;
-                Response response = client.post("/v1/shopping/flight-offers/pricing", null, body.Value);
+                Response response = client.post("/v1/shopping/flight-offers/pricing", _params, body);
 
                 return (FlightOfferPricingOutput[])Resource.fromArray(response, typeof(FlightOfferPricingOutput[]));
             }
@@ -67,7 +64,7 @@ namespace amadeus.travel.flightOffers
         {
             try
             {
-                return postFlightOffersPricing(null);
+                return postFlightOffersPricing(null, null);
             }
             catch (ResponseException)
             {
