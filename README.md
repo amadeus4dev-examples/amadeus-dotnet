@@ -38,12 +38,9 @@ namespace amadeusTest
         {
             try
             {
-
-                var apikey = "REPLACE_BY_YOUR_API_KEY";
-                var apisecret = "REPLACE_BY_YOUR_API_SECRET";
-
-                Configuration amadeusconfig = Amadeus.builder(apikey, apisecret);
-                Amadeus amadeus = amadeusconfig.build();
+                Amadeus amadeus = Amadeus
+                    .builder("REPLACE_BY_YOUR_API_KEY", "REPLACE_BY_YOUR_API_SECRET")
+                    .build();
 
                 Console.WriteLine("Get Check-in links:");
                 CheckinLink[] checkinLinks = amadeus.referenceData.urls.checkinLinks.get(Params
