@@ -94,20 +94,6 @@ Amadeus amadeus = Amadeus
         .build();
 ```
 
-## Documentation
-
-Amadeus has a large set of APIs, and our documentation is here to get you
-started today. Head over to our
-[Reference](https://amadeus4dev.github.io/amadeus-csharp/) documentation for
-in-depth information about every SDK method, its arguments and return types.
-
-
-* [Get Started](https://amadeus4dev.github.io/amadeus-csharp/) documentation
-  * [Initialize the SDK](https://amadeus4dev.github.io/amadeus-csharp/)
-  * [Find an Airport](https://amadeus4dev.github.io/amadeus-csharp/)
-  * [Find a Flight](https://amadeus4dev.github.io/amadeus-csharp/)
-  * [Get Flight Inspiration](https://amadeus4dev.github.io/amadeus-csharp/)
-
 ## Making API calls
 
 This library conveniently maps every API path to a similar path.
