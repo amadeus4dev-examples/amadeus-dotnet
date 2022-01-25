@@ -49,7 +49,7 @@ namespace amadeusTest
                 CheckinLink[] checkinLinks = amadeus.referenceData.urls.checkinLinks.get(Params
                         .with("airlineCode", "BA"));
 
-                Console.WriteLine(AmadeusUtil.ArrayToStringGeneric(checkinLinks, "\n"));
+                Console.WriteLine(checkinLinks[0].response.data);
 
             }
             catch (Exception e)
