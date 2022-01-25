@@ -21,7 +21,7 @@ your first application.
 using System;
 
 using amadeus;
-using amadeus.util;
+using amadeus.resources;
 
 namespace amadeusTest
 
@@ -46,7 +46,7 @@ namespace amadeusTest
                 Amadeus amadeus = amadeusconfig.build();
 
                 Console.WriteLine("Get Check-in links:");
-                amadeus.resources.CheckinLink[] checkinLinks = amadeus.referenceData.urls.checkinLinks.get(Params
+                CheckinLink[] checkinLinks = amadeus.referenceData.urls.checkinLinks.get(Params
                         .with("airlineCode", "BA"));
 
                 Console.WriteLine(AmadeusUtil.ArrayToStringGeneric(checkinLinks, "\n"));
