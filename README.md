@@ -147,7 +147,6 @@ Location[] locations = amadeus.referenceData.locations.get(Params
   .with("keyword", "LON")
   .and("subType", "CITY"));
 
- 
 Console.Write(locations[0].response.body); //the raw response, as a string
 Console.Write(locations[0].response.result); //the body parsed as JSON, if the result was parsable
 Console.Write(locations[0].response.data); //the list of locations, extracted from the JSON
