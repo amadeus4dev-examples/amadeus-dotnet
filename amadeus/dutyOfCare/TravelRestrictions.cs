@@ -1,7 +1,7 @@
 ﻿using amadeus.exceptions;
 using amadeus.resources;
 
-namespace amadeus.travel.restrictions
+namespace amadeus.dutyOfcare
 {
     /// <summary>
     /// <para>
@@ -15,7 +15,7 @@ namespace amadeus.travel.restrictions
     /// 
     /// <code>
     /// Amadeus amadeus = Amadeus.builder("clientId", "secret").build();
-    /// amadeus.travel.restrictions.travelRestrictions;
+    /// amadeus.dutyOfCare.travelRestrictions;
     /// </code>
     /// </summary>
     public class TravelRestrictions
@@ -33,7 +33,7 @@ namespace amadeus.travel.restrictions
         /// </para>
         /// 
         /// <code>
-        /// amadeus.travel.restrictions.travelRestrictions.get(Params.with("countryCode ", "US"));
+        /// amadeus.dutyOfCare.travelRestrictions.get(Params.with("countryCode ", "US"));
         /// </code>
         /// </summary>
         /// <returns>an API response object</returns>

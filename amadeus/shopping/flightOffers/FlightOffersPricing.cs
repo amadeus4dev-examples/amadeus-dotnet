@@ -3,7 +3,7 @@ using amadeus.resources;
 using System;
 using System.Collections.Generic;
 
-namespace amadeus.travel.flightOffers
+namespace amadeus.shopping.flightOffers
 {
     /// <summary>
     /// <para>
@@ -18,7 +18,7 @@ namespace amadeus.travel.flightOffers
     /// 
     /// <code>
     /// Amadeus amadeus = Amadeus.builder("clientId", "secret").build();
-    /// amadeus.travel.restrictions.travelRestrictions;
+    /// amadeus.shopping.flightOffers.pricing;
     /// </code>
     /// </summary>
     public class FlightOffersPricing
@@ -36,7 +36,7 @@ namespace amadeus.travel.flightOffers
         /// </para>
         /// 
         /// <code>
-        /// amadeus.travel.flightOffers.flightOffers.postFlightOffersPricing(body);
+        /// amadeus.shopping.flightOffers.pricing.postFlightOffersPricing(body);
         /// </code>
         /// </summary>
         /// <returns>an API response object</returns>

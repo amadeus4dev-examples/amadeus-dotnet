@@ -3,14 +3,12 @@ using amadeus.resources;
 using System;
 using System.Collections.Generic;
 
-namespace amadeus.travel.restrictions
+namespace amadeus.booking
 {
     /// <summary>
     /// <para>
     /// A namespaced client for the
-    /// <code>/v1/safety/safety-rated-locations> ,
-    /// <code>/v1/safety/safety-rated-locations/by-square> ,
-    /// <code>/v1/safety/safety-rated-locations/{safety-rated-locationId}>
+    /// <code>/v1/booking/flight-orders</code> ,
     /// endpoints.
     /// </para>
     /// 
@@ -20,123 +18,39 @@ namespace amadeus.travel.restrictions
     /// 
     /// <code>
     /// Amadeus amadeus = Amadeus.builder("clientId", "secret").build();
-    /// amadeus.travel.restrictions.travelRestrictions;
+    /// amadeus.booking.flightOffers;
     /// </code>
     /// </summary>
-    public class SafePlace
+    public class FlightOrderManagement
     {
         internal Amadeus client { get; set; }
 
-        public SafePlace(Amadeus client)
+        public FlightOrderManagement(Amadeus client)
         {
             this.client = client;
         }
 
         /// <summary>
         /// <para>
-        /// /safety/safety-rated-locations.
+        /// /booking/flight-orders/{flight-orderId}.
         /// </para>
         /// 
         /// <code>
-        /// amadeus.travel.restrictions.safePlace.getByGeoCode(Params.with("latitude", "41.397158").and("longitude", "2.160873"));
+        /// amadeus.booking.flightOffers.getFlightOrderManagement(Params.with("flight-orderId", "eJzTd9f3s4gKC%2FMEAAt8Ans%3D"));
         /// </code>
         /// </summary>
         /// <returns>an API response object</returns>
         /// <param name="_params">params the parameters to send to the API</param>
-        public SafetyRatedLocation[] getByGeoCode(Params _params)
-        {
-            try
-            {
-                string path = "/v1/safety/safety-rated-locations";
-                Response response = client.get(path, _params);
-                return (SafetyRatedLocation[])Resource.fromArray(response, typeof(SafetyRatedLocation[]));
-            }
-            catch (ResponseException)
-            {
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Convenience method for calling <code>get</code> without any parameters.
-        /// <see cref="getByGeoCode(Params)"/>
-        /// </summary>
-        /// <returns>an API response object</returns>
-        public SafetyRatedLocation[] getByGeoCode()
-        {
-            try
-            {
-                return getByGeoCode(null);
-            }
-            catch (ResponseException)
-            {
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// <para>
-        /// /safety/safety-rated-locations/by-square.
-        /// </para>
-        /// 
-        /// <code>
-        /// amadeus.travel.restrictions.safePlace.getBySquare(Params.with("north", "41.397158").and("west", "2.160873").and("south", "41.394582").and("east", "2.177181"));
-        /// </code>
-        /// </summary>
-        /// <returns>an API response object</returns>
-        /// <param name="_params">params the parameters to send to the API</param>
-        public SafetyRatedLocation[] getBySquare(Params _params)
-        {
-            try
-            {
-                string path = "/v1/safety/safety-rated-locations/by-square";
-                Response response = client.get(path, _params);
-                return (SafetyRatedLocation[])Resource.fromArray(response, typeof(SafetyRatedLocation[]));
-            }
-            catch (ResponseException)
-            {
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Convenience method for calling <code>get</code> without any parameters.
-        /// <see cref="getBySquare(Params)"/>
-        /// </summary>
-        /// <returns>an API response object</returns>
-        public SafetyRatedLocation[] getBySquare()
-        {
-            try
-            {
-                return getBySquare(null);
-            }
-            catch (ResponseException)
-            {
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// <para>
-        /// /v1/safety/safety-rated-locations/{safety-rated-locationId}.
-        /// </para>
-        /// 
-        /// <code>
-        /// amadeus.travel.restrictions.safePlace.getById(Params.with("safety-rated-locationId", "Q930402719"));
-        /// </code>
-        /// </summary>
-        /// <returns>an API response object</returns>
-        /// <param name="_params">params the parameters to send to the API</param>
-        public SafetyRatedLocation getById(Params _params)
+        public FlightOrderCreateQuery getFlightOrderManagement(Params _params)
         {
             try
             {
                 var parameters = _params.GetEnumerator();
                 parameters.MoveNext();
                 var id = parameters.Current;
-                string path = "/v1/safety/safety-rated-locations/" + id.Value;
-                Response response = client.get(path, _params);
-                return (SafetyRatedLocation)Resource.fromObject(response, typeof(SafetyRatedLocation));
+                string path = "/v1/booking/flight-orders/" + id.Value;
+                Response response = client.get(path);
+                return (FlightOrderCreateQuery)Resource.fromObject(response, typeof(FlightOrderCreateQuery));
             }
             catch (ResponseException)
             {
@@ -146,14 +60,100 @@ namespace amadeus.travel.restrictions
 
         /// <summary>
         /// Convenience method for calling <code>get</code> without any parameters.
-        /// <see cref="getById(Params)"/>
+        /// <see cref="getFlightOrderManagement(Params)"/>
         /// </summary>
         /// <returns>an API response object</returns>
-        public SafetyRatedLocation getById()
+        public FlightOrderCreateQuery getFlightOrderManagement()
         {
             try
             {
-                return getById(null);
+                return getFlightOrderManagement(null);
+            }
+            catch (ResponseException)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// <para>
+        /// /booking/flight-orders.
+        /// </para>
+        /// 
+        /// <code>
+        /// amadeus.booking.flightOffers.postFlightOrderManagement(body);
+        /// </code>
+        /// </summary>
+        /// <returns>an API response object</returns>
+        /// <param name="body">body the parameters to send to the API as a JSonObject</param>
+        public FlightOrderCreateQuery postFlightOrderManagement(string body)
+        {
+            try
+            {
+                Response response = client.post("/v1/booking/flight-orders", body);
+                return (FlightOrderCreateQuery)Resource.fromObject(response, typeof(FlightOrderCreateQuery));
+            }
+            catch (ResponseException)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Convenience method for calling <code>post</code> without any parameters.
+        /// <see cref="postFlightOrderManagement(string)"/>
+        /// </summary>
+        /// <returns>an API response object</returns>
+        public FlightOrderCreateQuery postFlightOrderManagement()
+        {
+            try
+            {
+                return postFlightOrderManagement(null);
+            }
+            catch (ResponseException)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// <para>
+        /// /booking/flight-orders/{flight-orderId}.
+        /// </para>
+        /// 
+        /// <code>
+        /// amadeus.booking.flightOffers.deleteFlightOrderManagement(Params.with("flight-orderId", "eJzTd9f3s4gKC%2FMEAAt8Ans%3D"));
+        /// </code>
+        /// </summary>
+        /// <returns>an API response object</returns>
+        /// <param name="_params">params the parameters to send to the API</param>
+        public FlightOrderCreateQuery[] deleteFlightOrderManagement(Params _params)
+        {
+            try
+            {
+                var parameters = _params.GetEnumerator();
+                parameters.MoveNext();
+                var id = parameters.Current;
+                string path = "/v1/booking/flight-orders/" + id.Value;
+                Response response = client.delete(path, _params);
+                return (FlightOrderCreateQuery[])Resource.fromArray(response, typeof(FlightOrderCreateQuery[]));
+            }
+            catch (ResponseException)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Convenience method for calling <code>post</code> without any parameters.
+        /// <see cref="deleteFlightOrderManagement(Params)"/>
+        /// </summary>
+        /// <returns>an API response object</returns>
+        public FlightOrderCreateQuery[] deleteFlightOrderManagement()
+        {
+            try
+            {
+                return deleteFlightOrderManagement(null);
             }
             catch (ResponseException)
             {
