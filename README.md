@@ -21,7 +21,7 @@ your first application.
 using System;
 
 using amadeus;
-using amadeus.util;
+using amadeus.resources;
 
 namespace amadeusTest
 
@@ -38,18 +38,15 @@ namespace amadeusTest
         {
             try
             {
-
-                var apikey = "REPLACE_BY_YOUR_API_KEY";
-                var apisecret = "REPLACE_BY_YOUR_API_SECRET";
-
-                Configuration amadeusconfig = Amadeus.builder(apikey, apisecret);
-                Amadeus amadeus = amadeusconfig.build();
+                Amadeus amadeus = Amadeus
+                    .builder("REPLACE_BY_YOUR_API_KEY", "REPLACE_BY_YOUR_API_SECRET")
+                    .build();
 
                 Console.WriteLine("Get Check-in links:");
-                amadeus.resources.CheckinLink[] checkinLinks = amadeus.referenceData.urls.checkinLinks.get(Params
+                CheckinLink[] checkinLinks = amadeus.referenceData.urls.checkinLinks.get(Params
                         .with("airlineCode", "BA"));
 
-                Console.WriteLine(AmadeusUtil.ArrayToStringGeneric(checkinLinks, "\n"));
+                Console.WriteLine(checkinLinks[0].response.data);
 
             }
             catch (Exception e)
@@ -97,20 +94,6 @@ Amadeus amadeus = Amadeus
         .build();
 ```
 
-## Documentation
-
-Amadeus has a large set of APIs, and our documentation is here to get you
-started today. Head over to our
-[Reference](https://amadeus4dev.github.io/amadeus-csharp/) documentation for
-in-depth information about every SDK method, its arguments and return types.
-
-
-* [Get Started](https://amadeus4dev.github.io/amadeus-csharp/) documentation
-  * [Initialize the SDK](https://amadeus4dev.github.io/amadeus-csharp/)
-  * [Find an Airport](https://amadeus4dev.github.io/amadeus-csharp/)
-  * [Find a Flight](https://amadeus4dev.github.io/amadeus-csharp/)
-  * [Get Flight Inspiration](https://amadeus4dev.github.io/amadeus-csharp/)
-
 ## Making API calls
 
 This library conveniently maps every API path to a similar path.
@@ -145,10 +128,11 @@ Every successful API call returns a `Resource` object. The underlying
 ```C#
 Location[] locations = amadeus.referenceData.locations.get(Params
   .with("keyword", "LON")
-  .and("subType", Locations.ANY));
+  .and("subType", "CITY"));
 
- // The raw response, as a string
-locations[0].response.body;
+Console.Write(locations[0].response.body); //the raw response, as a string
+Console.Write(locations[0].response.result); //the body parsed as JSON, if the result was parsable
+Console.Write(locations[0].response.data); //the list of locations, extracted from the JSON
 ```
 
 ## Pagination
