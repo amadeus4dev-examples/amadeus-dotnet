@@ -112,12 +112,17 @@ For example,  `GET /v2/shopping/hotel-offers/XXX` would be:
 amadeus.hotelOffer("XXX").get(...);
 ```
 
-You can make any arbitrary API call as well directly with the `.get` method.
-Keep in mind, this returns a raw `Resource`
+You can make any arbitrary API call as well directly to call not supported yet APIs. 
+Keep in mind, this returns a raw `Resource`. 
 
+For the `.get` methods you can call the APIs such as 
 ```C#
-var result = amadeus.get("/v2/reference-data/urls/checkin-links",
-  Params.with("airlineCode", "BA")).result();
+amadeus.get("/v2/reference-data/urls/checkin-links",
+  Params.with("airlineCode", "BA"))
+```
+and for the `.post` methods
+```C#
+amadeus.post("/v1/shopping/availability/flight-availabilities", body);
 ```
 
 ## Response
