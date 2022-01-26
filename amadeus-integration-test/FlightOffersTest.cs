@@ -44,7 +44,7 @@ namespace amadeus_integration_test
             .and("max", "2"));
 
             string body = "{\"data\":{\"type\":\"flight-offers-pricing\",\"flightOffers\":[" + flightOffersSearches[0].response.data[0] + "]}}";
-            FlightOfferPricingOutput response = amadeus.shopping.flightOffers.flightOffersPricing.postFlightOffersPricing(new Params(), body);
+            FlightOfferPricingOutput response = amadeus.shopping.flightOffers.pricing.postFlightOffersPricing(new Params(), body);
 
             Assert.True(response != null);
             Assert.True(response.type == "flight-offers-pricing");

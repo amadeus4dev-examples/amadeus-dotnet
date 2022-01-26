@@ -14,7 +14,7 @@ namespace amadeus_integration_test
         public void Get_Safety_Locations()
         {
             var amadeus = GetAmadeusBuild();
-            SafetyRatedLocation[] response = amadeus.safety.safePlace.getByGeoCode(Params.with("latitude", "41.397158").and("longitude", "2.160873"));
+            SafetyRatedLocation[] response = amadeus.safety.safetyRatedLocations.getByGeoCode(Params.with("latitude", "41.397158").and("longitude", "2.160873"));
 
             Assert.True(response != null);
             Assert.True(response[0].type == "safety-rated-location");
@@ -24,7 +24,7 @@ namespace amadeus_integration_test
         public void Get_Safety_Locations_by_Square()
         {
             var amadeus = GetAmadeusBuild();
-            SafetyRatedLocation[] response = amadeus.safety.safePlace.getBySquare(Params.with("north", "41.397158").and("west", "2.160873").and("south", "41.394582").and("east", "2.177181"));
+            SafetyRatedLocation[] response = amadeus.safety.safetyRatedLocations.getBySquare(Params.with("north", "41.397158").and("west", "2.160873").and("south", "41.394582").and("east", "2.177181"));
 
             Assert.True(response != null);
             Assert.True(response[0].type == "safety-rated-location");
@@ -35,7 +35,7 @@ namespace amadeus_integration_test
         public void Get_Safety_Locations_by_Id()
         {
             var amadeus = GetAmadeusBuild();
-            SafetyRatedLocation response = amadeus.safety.safePlace.getById(Params.with("safety-rated-locationId", "Q930402719"));
+            SafetyRatedLocation response = amadeus.safety.safetyRatedLocations.getById(Params.with("safety-rated-locationId", "Q930402719"));
 
             Assert.True(response != null);
             Assert.True(response.type == "safety-rated-location");

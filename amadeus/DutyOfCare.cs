@@ -10,7 +10,7 @@ namespace amadeus
     /// 
     /// <para>
     /// A namespaced client for the
-    /// <code>/v2/duty-of-care</code> endpoints.
+    /// <code>/v1/duty-of-care</code> endpoints.
     /// </para>
     /// 
     /// <para>Access via the Amadeus client object.</para>
@@ -27,9 +27,9 @@ namespace amadeus
 
         /// <summary>
         /// A namespaced client for the
-        /// <code>/v1/duty-of-care/diseases/covid19-area-report</code> endpoints.
+        /// <code>/v1/duty-of-care/diseases</code> endpoints.
         /// </summary>
-        public TravelRestrictions travelRestrictions;
+        public Diseases diseases;
 
         /// <summary>
         /// Initializes a new instance of the DutyOfCare class.
@@ -38,7 +38,7 @@ namespace amadeus
         public DutyOfCare(Amadeus client)
         {
             this.client = client;
-            this.travelRestrictions = new TravelRestrictions(client);
+            this.diseases = new Diseases(client);
 
         }
 

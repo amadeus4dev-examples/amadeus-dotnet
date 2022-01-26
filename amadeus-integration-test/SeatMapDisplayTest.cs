@@ -14,7 +14,7 @@ namespace amadeus_integration_test
         public void Get_SeatMap()
         {
             var amadeus = GetAmadeusBuild();
-            SeatMap[] response = amadeus.shopping.seatMapDisplay.getSeatMap(Params.with("flightOrderId", "MlpZVkFMfFdBVFNPTnwyMDE1LTExLTAy"));
+            SeatMap[] response = amadeus.shopping.seatmaps.getSeatMap(Params.with("flightOrderId", "MlpZVkFMfFdBVFNPTnwyMDE1LTExLTAy"));
 
             Assert.True(response != null);
         }
@@ -32,7 +32,7 @@ namespace amadeus_integration_test
             .and("max", "2"));
             string body = "{\"data\":[" + flightOffersSearches[0].response.data[0] + "]}}";
             
-            SeatMap[] response = amadeus.shopping.seatMapDisplay.postSeatMap(body);
+            SeatMap[] response = amadeus.shopping.seatmaps.postSeatMap(body);
 
             Assert.True(response != null);
             //Assert.True(response[0].type == "seatmap");

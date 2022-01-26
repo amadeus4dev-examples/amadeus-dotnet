@@ -1,16 +1,16 @@
 ﻿using System;
-using amadeus.safety;
+using amadeus.safety.safetyRatedLocations;
 
 namespace amadeus
 {
 
     /// <summary>
     /// 
-    /// Shopping
+    /// Safety
     /// 
     /// <para>
     /// A namespaced client for the
-    /// <code>/v2/safety</code> endpoints.
+    /// <code>/v1/safety</code> endpoints.
     /// </para>
     /// 
     /// <para>Access via the Amadeus client object.</para>
@@ -29,7 +29,7 @@ namespace amadeus
         /// A namespaced client for the
         /// <code>/v1/safety/safety-rated-locations</code> endpoints.
         /// </summary>
-        public SafePlace safePlace;
+        public SafePlace safetyRatedLocations;
 
         /// <summary>
         /// Initializes a new instance of the Safety class.
@@ -38,7 +38,7 @@ namespace amadeus
         public Safety(Amadeus client)
         {
             this.client = client;
-            this.safePlace = new SafePlace(client);
+            this.safetyRatedLocations = new SafePlace(client);
 
         }
 

@@ -53,7 +53,7 @@ namespace amadeus
         /// A namespaced client for the
         /// <code>/v1/shopping/seatmaps</code> endpoints.
         /// </summary>
-        public SeatMapDisplay seatMapDisplay;
+        public SeatMapDisplay seatmaps;
 
         /// <summary>
         /// A namespaced client for the
@@ -79,7 +79,7 @@ namespace amadeus
             this.flightDestinations = new FlightDestinations(client);
             this.flightOffers = new FlightOffers(client);
             this.flightOffersSearch = new FlightOffersSearch(client);
-            this.seatMapDisplay = new SeatMapDisplay(client);
+            this.seatmaps = new SeatMapDisplay(client);
             this.hotelOffers = new HotelOffers(client);
             this.hotelOffersByHotel = new HotelOffersByHotel(client);
         }

@@ -1,44 +1,44 @@
 ﻿using System;
-using amadeus.booking;
+using amadeus.dutyOfcare;
 
 namespace amadeus
 {
 
     /// <summary>
     /// 
-    /// Booking
+    /// Diseases
     /// 
     /// <para>
     /// A namespaced client for the
-    /// <code>/v2/booking</code> endpoints.
+    /// <code>/v1/duty-of-care/diseases</code> endpoints.
     /// </para>
     /// 
     /// <para>Access via the Amadeus client object.</para>
     /// 
     /// <code>
     /// Amadeus amadeus = Amadeus.builder("clientId", "secret").build();
-    /// amadeus.booking;
+    /// amadeus.dutyOfCare.diseases;
     /// </code>
     /// 
     /// </summary>
-    public class Booking
+    public class Diseases
     {
         internal Amadeus client;
 
         /// <summary>
         /// A namespaced client for the
-        /// <code>/v1/booking/flight-orders</code> endpoints.
+        /// <code>/v1/duty-of-care/diseases/covid19-area-report</code> endpoints.
         /// </summary>
-        public FlightOrderManagement flightOrder;
+        public TravelRestrictions covid19AreaReport;
 
         /// <summary>
-        /// Initializes a new instance of the Booking class.
+        /// Initializes a new instance of the Diseases class.
         /// </summary>
         /// <param name="client">Client.</param>
-        public Booking(Amadeus client)
+        public Diseases(Amadeus client)
         {
             this.client = client;
-            this.flightOrder = new FlightOrderManagement(client);
+            this.covid19AreaReport = new TravelRestrictions(client);
 
         }
 

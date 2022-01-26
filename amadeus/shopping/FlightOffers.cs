@@ -31,7 +31,7 @@ namespace amadeus.shopping
         /// A namespaced client for the
         /// <code>/v1/shopping/flight-offers/pricing</code> endpoints.
         /// </summary>
-        public FlightOffersPricing flightOffersPricing;
+        public FlightOffersPricing pricing;
 
         /// <summary>
         /// Initializes a new instance of the FlightOffers class.
@@ -40,7 +40,7 @@ namespace amadeus.shopping
         public FlightOffers(Amadeus client)
         {
             this.client = client;
-            this.flightOffersPricing = new FlightOffersPricing(client);
+            this.pricing = new FlightOffersPricing(client);
         }
 
         /// <summary>

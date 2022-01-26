@@ -36,7 +36,7 @@ namespace amadeus.shopping
         /// </para>
         /// 
         /// <code>
-        /// amadeus.shopping.seatMap.getSeatMap(Params.with("flightOrderId", "MlpZVkFMfFdBVFNPTnwyMDE1LTExLTAy"));
+        /// amadeus.shopping.seatMaps.getSeatMap(Params.with("flightOrderId", "MlpZVkFMfFdBVFNPTnwyMDE1LTExLTAy"));
         /// </code>
         /// </summary>
         /// <returns>an API response object</returns>
@@ -78,7 +78,7 @@ namespace amadeus.shopping
         /// </para>
         /// 
         /// <code>
-        /// amadeus.shopping.seatMap.postSeatMap(body);
+        /// amadeus.shopping.seatMaps.postSeatMap(body);
         /// </code>
         /// </summary>
         /// <returns>an API response object</returns>
