@@ -29,7 +29,7 @@ namespace amadeus_integration_test
             FlightOrderCreateQuery response = amadeus.booking.flightOrder.postFlightOrderManagement(body);
 
             Assert.True(response != null);
-            //Assert.True(restriction[0].type == "flight-order");
+            //Assert.True(response[0].type == "flight-order");
 
         }*/
 
