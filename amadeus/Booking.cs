@@ -1,43 +1,44 @@
 ﻿using System;
+using amadeus.booking;
 
-namespace amadeus.referenceData
+namespace amadeus
 {
 
     /// <summary>
     /// 
-    /// Travel
+    /// Booking
     /// 
     /// <para>
     /// A namespaced client for the
-    /// <code>/v2/travel</code> endpoints.
+    /// <code>/v2/booking</code> endpoints.
     /// </para>
     /// 
     /// <para>Access via the Amadeus client object.</para>
     /// 
     /// <code>
     /// Amadeus amadeus = Amadeus.builder("clientId", "secret").build();
-    /// amadeus.travel;
+    /// amadeus.booking;
     /// </code>
     /// 
     /// </summary>
-    public class TravelNew
+    public class Booking
     {
         internal Amadeus client;
 
         /// <summary>
         /// A namespaced client for the
-        /// <code>/v1/travel/predictions</code> endpoints.
+        /// <code>/v1/booking/flight-orders</code> endpoints.
         /// </summary>
-        public Predictions predictions;
+        public FlightOrderManagement flightOrderManagement;
 
         /// <summary>
-        /// Initializes a new instance of the Travel class.
+        /// Initializes a new instance of the Booking class.
         /// </summary>
         /// <param name="client">Client.</param>
-        public TravelNew(Amadeus client)
+        public Booking(Amadeus client)
         {
             this.client = client;
-            this.predictions = new Predictions(client);
+            this.flightOrderManagement = new FlightOrderManagement(client);
 
         }
 

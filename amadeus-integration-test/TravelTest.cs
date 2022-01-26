@@ -12,7 +12,7 @@ namespace amadeus_integration_test
         public void Get_Prediction()
         {
             var amadeus = GetAmadeusBuild();
-            Prediction response = amadeus.referenceData.travel.predictions.tripPurpose.get(Params.with("originLocationCode", "NYC")
+            Prediction response = amadeus.travel.predictions.tripPurpose.get(Params.with("originLocationCode", "NYC")
                 .and("destinationLocationCode", "MAD")
                 .and("departureDate", System.DateTime.Now.AddMonths(2).ToString("yyyy-MM-dd"))
                 .and("returnDate", System.DateTime.Now.AddMonths(2).ToString("yyyy-MM-dd"))

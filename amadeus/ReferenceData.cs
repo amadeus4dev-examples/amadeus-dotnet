@@ -42,40 +42,6 @@ namespace amadeus
         /// <value>The urls.</value>
         public Locations locations { get; set; }
 
-        /// <summary>
-        /// A namespaced client for the
-        /// <code>/v2/reference-data/shopping</code> endpoints.
-        /// </summary>
-        /// <value>The urls.</value>
-        public ShoppingNew shopping { get; set; }
-
-        /// <summary>
-        /// A namespaced client for the
-        /// <code>/v2/reference-data/safety</code> endpoints.
-        /// </summary>
-        /// <value>The urls.</value>
-        public Safety safety { get; set; }
-
-        /// <summary>
-        /// A namespaced client for the
-        /// <code>/v2/reference-data/dutyOfCare</code> endpoints.
-        /// </summary>
-        /// <value>The urls.</value>
-        public DutyOfCare dutyOfCare { get; set; }
-
-        /// <summary>
-        /// A namespaced client for the
-        /// <code>/v2/reference-data/booking</code> endpoints.
-        /// </summary>
-        /// <value>The urls.</value>
-        public Booking booking { get; set; }
-
-        /// <summary>
-        /// A namespaced client for the
-        /// <code>/v2/reference-data/travel</code> endpoints.
-        /// </summary>
-        /// <value>The urls.</value>
-        public TravelNew travel { get; set; }
 
         /// <summary>
         /// A namespaced client for the
@@ -94,12 +60,6 @@ namespace amadeus
             this.urls = new Urls(client);
             this.locations = new Locations(client);
             this.airlines = new Airlines(client);
-            this.shopping = new ShoppingNew(client);
-            this.safety = new Safety(client);
-            this.dutyOfCare = new DutyOfCare(client);
-            this.booking = new Booking(client);
-            this.travel = new TravelNew(client);
-
         }
 
         /// <summary>

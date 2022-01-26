@@ -27,12 +27,19 @@ namespace amadeus
         public Analytics analytics;
 
         /// <summary>
+        /// A namespaced client for the
+        /// <code>/v1/travel/predictions</code> endpoints.
+        /// </summary>
+        public Predictions predictions;
+
+        /// <summary>
         /// Initializes a new instance of the Travel class.
         /// </summary>
         /// <param name="client">Client.</param>
         public Travel(Amadeus client)
         {
             this.analytics = new Analytics(client);
+            this.predictions = new Predictions(client);
         }
 
     }

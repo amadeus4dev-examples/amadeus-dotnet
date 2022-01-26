@@ -1,44 +1,45 @@
 ﻿using System;
-using amadeus.shopping.flightOffers;
+using amadeus.safety;
 
-namespace amadeus.referenceData.flightOffers
+namespace amadeus
 {
 
     /// <summary>
     /// 
-    /// FlightOffers
+    /// Shopping
     /// 
     /// <para>
     /// A namespaced client for the
-    /// <code>/v2/shopping/flightOffers</code> endpoints.
+    /// <code>/v2/safety</code> endpoints.
     /// </para>
     /// 
     /// <para>Access via the Amadeus client object.</para>
     /// 
     /// <code>
     /// Amadeus amadeus = Amadeus.builder("clientId", "secret").build();
-    /// amadeus.shopping.flightOffers;
+    /// amadeus.safety;
     /// </code>
     /// 
     /// </summary>
-    public class FlightOffersNew
+    public class Safety
     {
         internal Amadeus client;
 
         /// <summary>
         /// A namespaced client for the
-        /// <code>/v1/shopping/flight-offers/pricing</code> endpoints.
+        /// <code>/v1/safety/safety-rated-locations</code> endpoints.
         /// </summary>
-        public FlightOffersPricing flightOffersPricing;
+        public SafePlace safePlace;
 
         /// <summary>
-        /// Initializes a new instance of the FlightOffers class.
+        /// Initializes a new instance of the Safety class.
         /// </summary>
         /// <param name="client">Client.</param>
-        public FlightOffersNew(Amadeus client)
+        public Safety(Amadeus client)
         {
             this.client = client;
-            this.flightOffersPricing = new FlightOffersPricing(client);
+            this.safePlace = new SafePlace(client);
+
         }
 
     }

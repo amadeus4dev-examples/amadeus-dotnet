@@ -14,7 +14,7 @@ namespace amadeus_integration_test
         public void Get_SeatMap()
         {
             var amadeus = GetAmadeusBuild();
-            SeatMap[] response = amadeus.referenceData.shopping.seatMapDisplay.getSeatMap(Params.with("flightOrderId", "MlpZVkFMfFdBVFNPTnwyMDE1LTExLTAy"));
+            SeatMap[] response = amadeus.shopping.seatMapDisplay.getSeatMap(Params.with("flightOrderId", "MlpZVkFMfFdBVFNPTnwyMDE1LTExLTAy"));
 
             Assert.True(response != null);
         }
@@ -25,14 +25,14 @@ namespace amadeus_integration_test
             var amadeus = GetAmadeusBuild();
 
             var flightOffersSearch = new FlightOffersSearch(amadeus);
-            FlightOffer[] flightOffersSearches = amadeus.referenceData.shopping.flightOffersSearch.getFlightOffers(Params.with("originLocationCode", "SYD")
+            FlightOffer[] flightOffersSearches = amadeus.shopping.flightOffersSearch.getFlightOffers(Params.with("originLocationCode", "SYD")
             .and("destinationLocationCode", "BKK")
             .and("departureDate", System.DateTime.Now.AddMonths(2).ToString("yyyy-MM-dd"))
             .and("adults", "1")
             .and("max", "2"));
             string body = "{\"data\":[" + flightOffersSearches[0].response.data[0] + "]}}";
             
-            SeatMap[] response = amadeus.referenceData.shopping.seatMapDisplay.postSeatMap(body);
+            SeatMap[] response = amadeus.shopping.seatMapDisplay.postSeatMap(body);
 
             Assert.True(response != null);
             //Assert.True(response[0].type == "seatmap");

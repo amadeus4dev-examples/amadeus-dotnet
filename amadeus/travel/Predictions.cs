@@ -1,7 +1,7 @@
 ﻿using System;
 using amadeus.travel.predictions;
 
-namespace amadeus.referenceData
+namespace amadeus.travel
 {
 
     /// <summary>

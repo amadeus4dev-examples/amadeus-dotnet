@@ -15,7 +15,7 @@ namespace amadeus_integration_test
         public void Get_FlightOffers()
         {
             var amadeus = GetAmadeusBuild();
-            FlightOffer[] response = amadeus.referenceData.shopping.flightOffersSearch.getFlightOffers(Params.with("originLocationCode", "SYD").and("destinationLocationCode", "BKK")
+            FlightOffer[] response = amadeus.shopping.flightOffersSearch.getFlightOffers(Params.with("originLocationCode", "SYD").and("destinationLocationCode", "BKK")
                 .and("departureDate", System.DateTime.Now.AddMonths(2).ToString("yyyy-MM-dd")).and("adults", "1"));
 
             Assert.True(response != null);
@@ -27,7 +27,7 @@ namespace amadeus_integration_test
         {
             var amadeus = GetAmadeusBuild();
             string body = "{\"originDestinations\":[{\"id\":\"1\",\"originLocationCode\":\"RIO\",\"destinationLocationCode\":\"MAD\",\"departureDateTimeRange\":{\"date\":\"" + System.DateTime.Now.AddMonths(2).ToString("yyyy-MM-dd") + "\",\"time\":\"10:00:00\"}}],\"travelers\":[{\"id\":\"1\",\"travelerType\":\"ADULT\"}],\"sources\":[\"GDS\"]}";
-            FlightOffer[] response = amadeus.referenceData.shopping.flightOffersSearch.postFlightOffers(body);
+            FlightOffer[] response = amadeus.shopping.flightOffersSearch.postFlightOffers(body);
 
             Assert.True(response != null);
             Assert.True(response[0].type == "flight-offer");
@@ -37,14 +37,14 @@ namespace amadeus_integration_test
         public void Post_FlightOffersPricing()
         {
             var amadeus = GetAmadeusBuild();
-            FlightOffer[] flightOffersSearches = amadeus.referenceData.shopping.flightOffersSearch.getFlightOffers(Params.with("originLocationCode", "SYD")
+            FlightOffer[] flightOffersSearches = amadeus.shopping.flightOffersSearch.getFlightOffers(Params.with("originLocationCode", "SYD")
             .and("destinationLocationCode", "BKK")
             .and("departureDate", System.DateTime.Now.AddMonths(2).ToString("yyyy-MM-dd"))
             .and("adults", "1")
             .and("max", "2"));
 
             string body = "{\"data\":{\"type\":\"flight-offers-pricing\",\"flightOffers\":[" + flightOffersSearches[0].response.data[0] + "]}}";
-            FlightOfferPricingOutput response = amadeus.referenceData.shopping.flightOffers.flightOffersPricing.postFlightOffersPricing(new Params(), body);
+            FlightOfferPricingOutput response = amadeus.shopping.flightOffers.flightOffersPricing.postFlightOffersPricing(new Params(), body);
 
             Assert.True(response != null);
             Assert.True(response.type == "flight-offers-pricing");

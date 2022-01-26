@@ -1,7 +1,7 @@
 ﻿using System;
 using amadeus.dutyOfcare;
 
-namespace amadeus.referenceData
+namespace amadeus
 {
 
     /// <summary>
