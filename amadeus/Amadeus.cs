@@ -44,6 +44,21 @@ namespace amadeus
         public Shopping shopping;
 
         /// <summary>
+        /// A namespaced client for the <code>/v1/booking</code> endpoints.
+        /// </summary>
+        public Booking booking;
+
+        /// <summary>
+        /// A namespaced client for the <code>/v1/safety</code> endpoints.
+        /// </summary>
+        public Safety safety;
+
+        /// <summary>
+        /// A namespaced client for the <code>/v1/dutyOfCare</code> endpoints.
+        /// </summary>
+        public DutyOfCare dutyOfCare;
+
+        /// <summary>
         /// Initializes a new instance of the Amadeus class.
         /// </summary>
         public Amadeus() : base(null)
@@ -60,6 +75,9 @@ namespace amadeus
             this.referenceData = new ReferenceData(this);
             this.travel = new Travel(this);
             this.shopping = new Shopping(this);
+            this.booking = new Booking(this);
+            this.safety = new Safety(this);
+            this.dutyOfCare = new DutyOfCare(this);
         }
 
         /// <summary>

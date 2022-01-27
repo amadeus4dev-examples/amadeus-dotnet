@@ -3,12 +3,12 @@ using amadeus.resources;
 using System;
 using System.Collections.Generic;
 
-namespace amadeus.travel.flightOffers
+namespace amadeus.shopping
 {
     /// <summary>
     /// <para>
     /// A namespaced client for the
-    /// <code>/v1/shopping/seatmaps> ,
+    /// <code>/v2/shopping/flight-offers> ,
     /// endpoints.
     /// </para>
     /// 
@@ -18,36 +18,36 @@ namespace amadeus.travel.flightOffers
     /// 
     /// <code>
     /// Amadeus amadeus = Amadeus.builder("clientId", "secret").build();
-    /// amadeus.travel.restrictions.travelRestrictions;
+    /// amadeus.shopping.flight-offers;
     /// </code>
     /// </summary>
-    public class SeatMapDisplay
+    public class FlightOffersSearch
     {
         internal Amadeus client { get; set; }
 
-        public SeatMapDisplay(Amadeus client)
+        public FlightOffersSearch(Amadeus client)
         {
             this.client = client;
         }
 
         /// <summary>
         /// <para>
-        /// /shopping/seatmaps.
+        /// /shopping/flight-offers.
         /// </para>
         /// 
         /// <code>
-        /// amadeus.travel.flightOffers.seatMap.getSeatMap(Params.with("flightOrderId", "MlpZVkFMfFdBVFNPTnwyMDE1LTExLTAy"));
+        /// amadeus.shopping.flightOffers.getFlightOffers(Params.with("originLocationCode", "SYD").and("destinationLocationCode", "BKK").and("departureDate", "2022-03-01").and("adults", "1"));
         /// </code>
         /// </summary>
         /// <returns>an API response object</returns>
         /// <param name="_params">params the parameters to send to the API</param>
-        public SeatMap[] getSeatMap(Params _params)
+        public FlightOffer[] getFlightOffers(Params _params)
         {
             try
             {
-                string path = "/v1/shopping/seatmaps";
+                string path = "/v2/shopping/flight-offers";
                 Response response = client.get(path, _params);
-                return (SeatMap[])Resource.fromArray(response, typeof(SeatMap[]));
+                return (FlightOffer[])Resource.fromArray(response, typeof(FlightOffer[]));
             }
             catch (ResponseException)
             {
@@ -57,14 +57,14 @@ namespace amadeus.travel.flightOffers
 
         /// <summary>
         /// Convenience method for calling <code>get</code> without any parameters.
-        /// <see cref="getSeatMap(Params)"/>
+        /// <see cref="getFlightOffers(Params)"/>
         /// </summary>
         /// <returns>an API response object</returns>
-        public SeatMap[] getSeatMap()
+        public FlightOffer[] getFlightOffers()
         {
             try
             {
-                return getSeatMap(null);
+                return getFlightOffers(null);
             }
             catch (ResponseException)
             {
@@ -74,21 +74,21 @@ namespace amadeus.travel.flightOffers
 
         /// <summary>
         /// <para>
-        /// /shopping/seatmaps.
+        /// /shopping/flight-offers.
         /// </para>
         /// 
         /// <code>
-        /// amadeus.travel.flightOffers.seatMap.postSeatMap(body);
+        /// amadeus.travel.flightOffers.postFlightOffers(body);
         /// </code>
         /// </summary>
         /// <returns>an API response object</returns>
-        /// <param name="_params">body the parameters to send to the API as a JSonObject</param>
-        public SeatMap[] postSeatMap(string body)
+        /// <param name="body">body the parameters to send to the API as a JSonObject</param>
+        public FlightOffer[] postFlightOffers(string body)
         {
             try
             {
-                Response response = client.post("/v1/shopping/seatmaps", body);
-                return (SeatMap[])Resource.fromArray(response, typeof(SeatMap[]));
+                Response response = client.post("/v2/shopping/flight-offers", body);
+                return (FlightOffer[])Resource.fromArray(response, typeof(FlightOffer[]));
             }
             catch (ResponseException)
             {
@@ -98,14 +98,14 @@ namespace amadeus.travel.flightOffers
 
         /// <summary>
         /// Convenience method for calling <code>post</code> without any parameters.
-        /// <see cref="postSeatMap(string)"/>
+        /// <see cref="postFlightOffers(string)"/>
         /// </summary>
         /// <returns>an API response object</returns>
-        public SeatMap[] postSeatMap()
+        public FlightOffer[] postFlightOffers()
         {
             try
             {
-                return postSeatMap(null);
+                return postFlightOffers(null);
             }
             catch (ResponseException)
             {

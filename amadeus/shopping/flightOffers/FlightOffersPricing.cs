@@ -3,7 +3,7 @@ using amadeus.resources;
 using System;
 using System.Collections.Generic;
 
-namespace amadeus.travel.flightOffers
+namespace amadeus.shopping.flightOffers
 {
     /// <summary>
     /// <para>
@@ -18,7 +18,7 @@ namespace amadeus.travel.flightOffers
     /// 
     /// <code>
     /// Amadeus amadeus = Amadeus.builder("clientId", "secret").build();
-    /// amadeus.travel.restrictions.travelRestrictions;
+    /// amadeus.shopping.flightOffers.pricing;
     /// </code>
     /// </summary>
     public class FlightOffersPricing
@@ -36,16 +36,42 @@ namespace amadeus.travel.flightOffers
         /// </para>
         /// 
         /// <code>
-        /// amadeus.travel.flightOffers.flightOffers.postFlightOffersPricing(body);
+        /// amadeus.shopping.flightOffers.pricing.postFlightOffersPricing(_params, body);
         /// </code>
         /// </summary>
         /// <returns>an API response object</returns>
         /// <param name="_params">body the parameters to send to the API as a JSonObject</param>
+        /// <param name="body">body the parameters to send to the API as a JSonObject</param>
         public FlightOfferPricingOutput postFlightOffersPricing(Params _params, string body)
         {
             try
             {
                 Response response = client.post("/v1/shopping/flight-offers/pricing", _params, body);
+
+                return (FlightOfferPricingOutput)Resource.fromObject(response, typeof(FlightOfferPricingOutput));
+            }
+            catch (ResponseException)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// <para>
+        /// /shopping/flight-offers/pricing.
+        /// </para>
+        /// 
+        /// <code>
+        /// amadeus.shopping.flightOffers.pricing.postFlightOffersPricing(body);
+        /// </code>
+        /// </summary>
+        /// <returns>an API response object</returns>
+        /// <param name="body">body the parameters to send to the API as a JSonObject</param>
+        public FlightOfferPricingOutput postFlightOffersPricing(string body)
+        {
+            try
+            {
+                Response response = client.post("/v1/shopping/flight-offers/pricing", body);
 
                 return (FlightOfferPricingOutput)Resource.fromObject(response, typeof(FlightOfferPricingOutput));
             }

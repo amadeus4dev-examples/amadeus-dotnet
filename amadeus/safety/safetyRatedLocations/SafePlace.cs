@@ -3,7 +3,7 @@ using amadeus.resources;
 using System;
 using System.Collections.Generic;
 
-namespace amadeus.travel.restrictions
+namespace amadeus.safety.safetyRatedLocations
 {
     /// <summary>
     /// <para>
@@ -20,7 +20,7 @@ namespace amadeus.travel.restrictions
     /// 
     /// <code>
     /// Amadeus amadeus = Amadeus.builder("clientId", "secret").build();
-    /// amadeus.travel.restrictions.travelRestrictions;
+    /// amadeus.safety.safePlace;
     /// </code>
     /// </summary>
     public class SafePlace
@@ -38,7 +38,7 @@ namespace amadeus.travel.restrictions
         /// </para>
         /// 
         /// <code>
-        /// amadeus.travel.restrictions.safePlace.getByGeoCode(Params.with("latitude", "41.397158").and("longitude", "2.160873"));
+        /// amadeus.safety.safePlace.getByGeoCode(Params.with("latitude", "41.397158").and("longitude", "2.160873"));
         /// </code>
         /// </summary>
         /// <returns>an API response object</returns>
@@ -80,7 +80,7 @@ namespace amadeus.travel.restrictions
         /// </para>
         /// 
         /// <code>
-        /// amadeus.travel.restrictions.safePlace.getBySquare(Params.with("north", "41.397158").and("west", "2.160873").and("south", "41.394582").and("east", "2.177181"));
+        /// amadeus.safety.safePlace.getBySquare(Params.with("north", "41.397158").and("west", "2.160873").and("south", "41.394582").and("east", "2.177181"));
         /// </code>
         /// </summary>
         /// <returns>an API response object</returns>
@@ -122,7 +122,7 @@ namespace amadeus.travel.restrictions
         /// </para>
         /// 
         /// <code>
-        /// amadeus.travel.restrictions.safePlace.getById(Params.with("safety-rated-locationId", "Q930402719"));
+        /// amadeus.safety.safePlace.getById(Params.with("safety-rated-locationId", "Q930402719"));
         /// </code>
         /// </summary>
         /// <returns>an API response object</returns>

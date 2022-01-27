@@ -1,4 +1,5 @@
 ﻿using System;
+using amadeus.referenceData;
 using resources.referenceData;
 
 namespace amadeus
@@ -40,6 +41,7 @@ namespace amadeus
         /// </summary>
         /// <value>The urls.</value>
         public Locations locations { get; set; }
+
 
         /// <summary>
         /// A namespaced client for the

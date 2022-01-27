@@ -2,6 +2,7 @@
 using amadeus;
 using amadeus.exceptions;
 using amadeus.resources;
+using amadeus.shopping.flightOffers;
 
 namespace amadeus.shopping
 {
@@ -27,12 +28,19 @@ namespace amadeus.shopping
         internal Amadeus client { get; set; }
 
         /// <summary>
+        /// A namespaced client for the
+        /// <code>/v1/shopping/flight-offers/pricing</code> endpoints.
+        /// </summary>
+        public FlightOffersPricing pricing;
+
+        /// <summary>
         /// Initializes a new instance of the FlightOffers class.
         /// </summary>
         /// <param name="client">Client.</param>
         public FlightOffers(Amadeus client)
         {
             this.client = client;
+            this.pricing = new FlightOffersPricing(client);
         }
 
         /// <summary>

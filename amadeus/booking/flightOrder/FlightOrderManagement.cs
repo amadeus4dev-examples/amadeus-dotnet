@@ -3,12 +3,12 @@ using amadeus.resources;
 using System;
 using System.Collections.Generic;
 
-namespace amadeus.travel.flightOffers
+namespace amadeus.booking
 {
     /// <summary>
     /// <para>
     /// A namespaced client for the
-    /// <code>/v1/booking/flight-orders> ,
+    /// <code>/v1/booking/flight-orders</code> ,
     /// endpoints.
     /// </para>
     /// 
@@ -18,7 +18,7 @@ namespace amadeus.travel.flightOffers
     /// 
     /// <code>
     /// Amadeus amadeus = Amadeus.builder("clientId", "secret").build();
-    /// amadeus.travel.flightOffers.flightOrderManagement;
+    /// amadeus.booking.flightOffers;
     /// </code>
     /// </summary>
     public class FlightOrderManagement
@@ -36,7 +36,7 @@ namespace amadeus.travel.flightOffers
         /// </para>
         /// 
         /// <code>
-        /// amadeus.travel.flightOffers.flightOrderManagement.getFlightOrderManagement(Params.with("flight-orderId", "eJzTd9f3s4gKC%2FMEAAt8Ans%3D"));
+        /// amadeus.booking.flightOrder.getFlightOrderManagement(Params.with("flight-orderId", "eJzTd9f3s4gKC%2FMEAAt8Ans%3D"));
         /// </code>
         /// </summary>
         /// <returns>an API response object</returns>
@@ -81,7 +81,7 @@ namespace amadeus.travel.flightOffers
         /// </para>
         /// 
         /// <code>
-        /// amadeus.travel.flightOffers.flightOrderManagement.postFlightOrderManagement(body);
+        /// amadeus.booking.flightOrder.postFlightOrderManagement(body);
         /// </code>
         /// </summary>
         /// <returns>an API response object</returns>
@@ -122,7 +122,7 @@ namespace amadeus.travel.flightOffers
         /// </para>
         /// 
         /// <code>
-        /// amadeus.travel.flightOffers.flightOrderManagement.deleteFlightOrderManagement(Params.with("flight-orderId", "eJzTd9f3s4gKC%2FMEAAt8Ans%3D"));
+        /// amadeus.booking.flightOrder.deleteFlightOrderManagement(Params.with("flight-orderId", "eJzTd9f3s4gKC%2FMEAAt8Ans%3D"));
         /// </code>
         /// </summary>
         /// <returns>an API response object</returns>
