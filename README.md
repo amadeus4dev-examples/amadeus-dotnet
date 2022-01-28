@@ -233,6 +233,40 @@ Period[] busiestPeriods = amadeus.travel.analytics.airTraffic.busiestPeriod.get(
   .with("cityCode", "MAD")
   .and("period", "2017")
   .and("direction", BusiestPeriod.ARRIVING));
+    
+// Flight Offers Search
+// GET endpoint
+FlightOffer[] flights = amadeus.shopping.flightOffersSearch.getFlightOffers(Params.
+    with("originLocationCode", "SYD")
+    .and("destinationLocationCode", "BKK")
+    .and("departureDate", System.DateTime.Now.AddMonths(2).ToString("2022-06-06"))
+    .and("adults", "1"));
+    
+// POST ednpoint
+FlightOffer[] flights = amadeus.shopping.flightOffersSearch.postFlightOffers(body);
+
+// Flight Offers Price
+FlightOfferPricingOutput pricing = amadeus.shopping.flightOffers.pricing.postFlightOffersPricing(body);
+
+// Flight Create Orders
+FlightOrderCreateQuery createOrder = amadeus.booking.flightOrder.postFlightOrderManagement(body);
+
+// Flight Order Management
+// GET endpoint
+FlightOrderCreateQuery getOrder = amadeus.booking.flightOrder.getFlightOrderManagement(Params
+    .with("flight-orderId", "eJzTd9cPsbR083cDAArgAkc%3D"));
+
+// DELETE endpoint
+FlightOrderCreateQuery[] deleteOrder = amadeus.booking.flightOrder.deleteFlightOrderManagement(Params
+    .with("flight-orderId", "eJzTd9cPsbR083cDAArgAkc%3D"));
+    
+// SeatMap Display API 
+// GET ednpoint
+SeatMap[] seatsmap = amadeus.shopping.seatmaps.getSeatMap(Params
+    .with("flightOrderId", "MlpZVkFMfFdBVFNPTnwyMDE1LTExLTAy"));
+
+// POST endpoint
+SeatMap[] response = amadeus.shopping.seatmaps.postSeatMap(body);
 
 // Hotel Search
 // Get list of hotels by city code
@@ -258,30 +292,33 @@ PointOfInterest[] pointsOfInterest = amadeus.referenceData.locations.pointsOfInt
     .and("south", "41.394582")
     .and("east", "2.177181"));
     
-// Travel Restrictions 
-DiseaseAreaReport restriction = travelRestrictions.get(Params.with("countryCode", "US"));
-
 // Safe Place 
 // Safe Place by coordinates 
-SafetyRatedLocation[] safeLocation = safePlace.getByGeoCode(Params
+SafetyRatedLocation[] safeLocation = amadeus.safety.safetyRatedLocations.getByGeoCode(Params
     .with("latitude", "41.397158")
     .and("longitude", "2.160873"));
     
 // Safe Place by square 
-SafetyRatedLocation[] safeLocation = safePlace.getBySquare(Params
+SafetyRatedLocation[] safeLocation = amadeus.safety.safetyRatedLocations.getBySquare(Params
     .with("north", "41.397158")
     .and("west", "2.160873")
     .and("south", "41.394582")
     .and("east", "2.177181"));
     
 // Safe Place by id 
-SafetyRatedLocation safeLocation = safePlace.getById(Params.with("safety-rated-locationId", "Q930402719"));
+SafetyRatedLocation safeLocation = amadeus.safety.safetyRatedLocations.getById(Params
+    .with("safety-rated-locationId", "Q930402719"));
 
 // Trip Purpose Prediction
-Prediction prediction = tripPurpose.get(Params.with("originLocationCode", "NYC")
+Prediction prediction = amadeus.travel.predictions.tripPurpose.get(Params.with("originLocationCode", "NYC")
     .and("destinationLocationCode", "MAD")
     .and("departureDate", "2022-06-01")
     .and("returnDate", "2022-06-06"));
+    
+// Travel Restrictions 
+DiseaseAreaReport restrictions = amadeus.dutyOfCare.diseases.covid19AreaReport.get(Params
+    .with("countryCode", "US"));
+
 ```
 
 ## Development & Contributing
