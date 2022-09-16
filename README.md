@@ -1,6 +1,6 @@
 # Amadeus Dotnet SDK
 
-![Nuget](https://img.shields.io/nuget/v/amadeus-dotnet)
+[![Nuget](https://img.shields.io/nuget/v/amadeus-dotnet)](https://www.nuget.org/packages/amadeus-dotnet)
 [![build](https://github.com/amadeus4dev/amadeus-dotnet/actions/workflows/build.yml/badge.svg)](https://github.com/amadeus4dev/amadeus-dotnet/actions/workflows/build.yml)
 [![Discord](https://img.shields.io/discord/696822960023011329?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/cVrFBqx)
 
