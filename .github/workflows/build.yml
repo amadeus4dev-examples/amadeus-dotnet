@@ -65,5 +65,6 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"amadeus4dev_amadeus-dotnet" /o:"amadeus4dev" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          nuget restore amadeus-csharp.sln
           dotnet msbuild amadeus-csharp.sln /p:platform="Any CPU" /p:Configuration=Release
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
