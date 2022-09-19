@@ -7,6 +7,10 @@
 
 Amadeus provides a rich set of APIs for the travel industry. For more details, check out the [Amadeus for Developers portal](https://developers.amadeus.com).
 
+## :warning: Important message :warning:
+
+:heavy_exclamation_mark: This SDK is maintained **by the developer community only**. The Amadeus for Developers team doesn't support or maintain it. :heavy_exclamation_mark:
+
 ## Installation
 
 You can install the `amadeus-dotnet` via NuGet packages installer, by searching for it in the package explorer.
