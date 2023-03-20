@@ -158,8 +158,8 @@ namespace amadeustest
                 Assert.IsTrue(flightDestinations.get().Length == 2);
 
                 // Testing flight offer search
-                _client.Setup(m => m.get("/v1/shopping/flight-offers", null)).Returns(_multiResponse.Object);
-                _client.Setup(m => m.get("/v1/shopping/flight-offers", _params)).Returns(_multiResponse.Object);
+                _client.Setup(m => m.get("/v2/shopping/flight-offers", null)).Returns(_multiResponse.Object);
+                _client.Setup(m => m.get("/v2/shopping/flight-offers", _params)).Returns(_multiResponse.Object);
                 FlightOffers flightOffers = new FlightOffers(_client.Object);
                 Assert.IsNotNull(flightOffers);
                 Assert.IsNotNull(flightOffers.get(_params));

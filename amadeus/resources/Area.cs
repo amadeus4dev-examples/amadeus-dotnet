@@ -21,7 +21,7 @@ namespace amadeus.resources
         /// Gets or sets the type of the iataCode.
         /// </summary>
         /// <value>The type of the iataCode.</value>
-        public string iataCode { get; set; }
+        public string code { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the iataCode.

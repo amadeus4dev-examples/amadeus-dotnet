@@ -27,19 +27,19 @@ namespace amadeus.resources
         /// Gets or sets the type of the subAreas.
         /// </summary>
         /// <value>The type of the subAreas.</value>
-        public List<string> subAreas { get; set; }
+        public List<Area> subAreas { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the summary.
         /// </summary>
         /// <value>The type of the summary.</value>
-        public string summary { get; set; }
+        public Summary summary { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the diseaseRiskLevel.
         /// </summary>
         /// <value>The type of the diseaseRiskLevel.</value>
-        public string diseaseRiskLevel { get; set; }
+        public Summary diseaseRiskLevel { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the diseaseInfection.
@@ -63,7 +63,7 @@ namespace amadeus.resources
         /// Gets or sets the type of the hotspots.
         /// </summary>
         /// <value>The type of the hotspots.</value>
-        public string hotspots { get; set; }
+        public Summary hotspots { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the dataSources.
