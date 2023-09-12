@@ -26,7 +26,7 @@ namespace amadeus
         /// <summary>
         /// The API version.
         /// </summary>
-        public const string VERSION = "1.0.0";
+        public const string VERSION = "2.0.0";
 
         /// <summary>
         /// A namespaced client for the <code>/v2/reference-data</code> endpoints.
@@ -54,11 +54,6 @@ namespace amadeus
         public Safety safety;
 
         /// <summary>
-        /// A namespaced client for the <code>/v1/dutyOfCare</code> endpoints.
-        /// </summary>
-        public DutyOfCare dutyOfCare;
-
-        /// <summary>
         /// Initializes a new instance of the Amadeus class.
         /// </summary>
         public Amadeus() : base(null)
@@ -77,7 +72,6 @@ namespace amadeus
             this.shopping = new Shopping(this);
             this.booking = new Booking(this);
             this.safety = new Safety(this);
-            this.dutyOfCare = new DutyOfCare(this);
         }
 
         /// <summary>
