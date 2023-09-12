@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <PackageId>amadeus-dotnet</PackageId>
-    <PackageVersion>1.0.0</PackageVersion>
-	<Version>1.0.0</Version>
+    <PackageVersion>2.0.0</PackageVersion>
+	<Version>2.0.0</Version>
     <Authors>amadeus4dev</Authors>
 	<Owners>amadeus4dev</Owners>
     <Company>amadeus4dev</Company>
@@ -19,7 +19,7 @@
 	<NeutralLanguage>en</NeutralLanguage>
 	<PackageTags>netstandard2.0;csharp4.5</PackageTags>
 	<RepositoryType>GIT</RepositoryType>
-	<AssemblyVersion>1.0.0.0</AssemblyVersion>
+	<AssemblyVersion>2.0.0.0</AssemblyVersion>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
@@ -42,10 +42,12 @@
     <Folder Include="util\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="NuGet.Build.Packaging" Version="0.2.2" />
-    <PackageReference Include="docfx.console" Version="2.41.0" />
+    <PackageReference Include="docfx.console" Version="2.59.4"><PrivateAssets>all</PrivateAssets>
+<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+</PackageReference>
   </ItemGroup>
   <ItemGroup>
     <None Remove="travist.yml" />
