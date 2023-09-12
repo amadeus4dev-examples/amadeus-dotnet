@@ -49,7 +49,7 @@ namespace amadeustest
         [Test()]
         public void TestVersion()
         {
-            Assert.IsTrue(Amadeus.VERSION == "2.0.0", "should have a version number");
+            Assert.IsTrue(Amadeus.VERSION == "3.0.0", "should have a version number");
         }
     }
 }

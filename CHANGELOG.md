@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.0.0 - 2023-09-12
+
+- Update frameworks to .Net 6
+- Removed Support for end of life COVID-19 Travel Restrictions API
+
 ## 2.0.0 - 2022-01-27
 
 - Update frameworks to .Net Core 3.1

@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <PackageId>amadeus-dotnet</PackageId>
-    <PackageVersion>2.0.0</PackageVersion>
-	<Version>2.0.0</Version>
+    <PackageVersion>30.0</PackageVersion>
+	<Version>3.0.0</Version>
     <Authors>amadeus4dev</Authors>
 	<Owners>amadeus4dev</Owners>
     <Company>amadeus4dev</Company>
@@ -15,11 +15,11 @@
 	<AssemblyName>amadeus-dotnet</AssemblyName>
 	<PackageProjectUrl>https://github.com/amadeus4dev/amadeus-dotnet</PackageProjectUrl>
 	<RepositoryUrl>https://github.com/amadeus4dev/amadeus-dotnet</RepositoryUrl>
-	<PackageReleaseNotes>The first stable version of the Amadeus for Developers Dotnet SDK</PackageReleaseNotes>
+	<PackageReleaseNotes>Updated SDK to .NET 6 and removed end of life APIs.</PackageReleaseNotes>
 	<NeutralLanguage>en</NeutralLanguage>
 	<PackageTags>netstandard2.0;csharp4.5</PackageTags>
 	<RepositoryType>GIT</RepositoryType>
-	<AssemblyVersion>2.0.0.0</AssemblyVersion>
+	<AssemblyVersion>3.0.0.0</AssemblyVersion>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>

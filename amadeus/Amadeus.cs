@@ -26,7 +26,7 @@ namespace amadeus
         /// <summary>
         /// The API version.
         /// </summary>
-        public const string VERSION = "2.0.0";
+        public const string VERSION = "3.0.0";
 
         /// <summary>
         /// A namespaced client for the <code>/v2/reference-data</code> endpoints.
