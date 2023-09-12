@@ -4,10 +4,9 @@
 [![build](https://github.com/amadeus4dev/amadeus-dotnet/actions/workflows/build.yml/badge.svg)](https://github.com/amadeus4dev/amadeus-dotnet/actions/workflows/build.yml)
 [![Discord](https://img.shields.io/discord/696822960023011329?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/cVrFBqx)
 
-
 Amadeus provides a rich set of APIs for the travel industry. For more details, check out the [Amadeus for Developers portal](https://developers.amadeus.com).
 
-## :warning: Important message :warning:
+## :warning: Important message :warning
 
 :heavy_exclamation_mark: This SDK is maintained **by the developer community only**. The Amadeus for Developers team doesn't support or maintain it. :heavy_exclamation_mark:
 
@@ -116,15 +115,18 @@ For example,  `GET /v2/shopping/hotel-offers/XXX` would be:
 amadeus.hotelOffer("XXX").get(...);
 ```
 
-You can make any arbitrary API call as well directly to call not supported yet APIs. 
-Keep in mind, this returns a raw `Resource`. 
+You can make any arbitrary API call as well directly to call not supported yet APIs.
+Keep in mind, this returns a raw `Resource`.
 
-For the `.get` methods you can call the APIs such as 
+For the `.get` methods you can call the APIs such as
+
 ```C#
 amadeus.get("/v2/reference-data/urls/checkin-links",
   Params.with("airlineCode", "BA"))
 ```
+
 and for the `.post` methods
+
 ```C#
 amadeus.post("/v1/shopping/availability/flight-availabilities", body);
 ```
@@ -175,6 +177,7 @@ Amadeus amadeus = Amadeus
 ```
 
 ## List of supported endpoints
+
 ```C#
 // Flight Inspiration Search
 FlightDestination[] flightDestinations = amadeus.shopping.flightDestinations.get(Params
@@ -318,10 +321,6 @@ Prediction prediction = amadeus.travel.predictions.tripPurpose.get(Params.with("
     .and("destinationLocationCode", "MAD")
     .and("departureDate", "2022-06-01")
     .and("returnDate", "2022-06-06"));
-    
-// Travel Restrictions 
-DiseaseAreaReport restrictions = amadeus.dutyOfCare.diseases.covid19AreaReport.get(Params
-    .with("countryCode", "US"));
 
 ```
 
@@ -329,7 +328,6 @@ DiseaseAreaReport restrictions = amadeus.dutyOfCare.diseases.covid19AreaReport.g
 
 Want to contribute? Read our [Contributors Guide](.github/CONTRIBUTING.md) for
 guidance on installing and running this code in a development environment.
-
 
 ## License
 
