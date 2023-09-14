@@ -1,7 +1,7 @@
 name: build
 on:
   push:
-    branches: [ '*' ]
+    branches: [ master ]
   pull_request:
     branches: [ master ]
     types: [opened, synchronize, reopened]
@@ -22,10 +22,9 @@ jobs:
       run: | 
         dotnet build amadeus-csharp.sln --configuration Release -p:platform="Any CPU" --no-restore
     - name: Run IntegrationTests
-      run: dotnet test ./amadeus-integration-test/amadeus-integration-test.csproj --configuration Release -p:platform="Any CPU" --no-build --no-restore --environment key="${{ secrets.NET_API_KEY }}" --environment secret="${{ secrets.NET_API_SECRET }}"
+      run: dotnet test ./amadeus-integration-test/amadeus-integration-test.csproj --configuration Release --no-build --no-restore --environment key="${{ secrets.NET_API_KEY }}" --environment secret="${{ secrets.NET_API_SECRET }}"
     - name: run UnitTests
-      run: dotnet test ./amadeus-test/amadeus-test.csproj --configuration Release -p:platform="Any CPU" --no-build --no-restore
-
+      run: dotnet test ./amadeus-test/amadeus-test.csproj --configuration Release --no-build --no-restore
   SonarCloud:
     name: Build SonarCloud Test
     runs-on: ubuntu-latest
@@ -55,14 +54,14 @@ jobs:
         shell: bash
         run: |
           mkdir -p ~/.sonar/scanner
-          dotnet tool update dotnet-sonarscanner --tool-path ~/.sonar/scanner
+          dotnet tool install -g dotnet-sonarscanner
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: bash
         run: |
-          ./.sonar/scanner/dotnet-sonarscanner begin /k:"amadeus4dev_amadeus-dotnet" /o:"amadeus4dev" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          dotnet-sonarscanner begin /k:"amadeus4dev_amadeus-dotnet" /o:"amadeus4dev" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet restore amadeus-csharp.sln
           dotnet build amadeus-csharp.sln /p:platform="Any CPU" /p:Configuration=Release
-          ./.sonar/scanner/dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
