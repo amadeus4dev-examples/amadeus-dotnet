@@ -1,7 +1,5 @@
 name: build
-on:
-  push:
-    branches: [ '*' ]
+on: push
   pull_request:
     branches: [ master ]
     types: [opened, synchronize, reopened]
