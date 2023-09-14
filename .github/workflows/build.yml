@@ -17,9 +17,9 @@ jobs:
       run: | 
         dotnet build amadeus-csharp.sln --configuration Release -p:platform="Any CPU" --no-restore
     - name: Run IntegrationTests
-      run: dotnet test ./amadeus-integration-test/amadeus-integration-test.csproj --configuration Release -p:platform="Any CPU" --no-build --no-restore --environment key="${{ secrets.NET_API_KEY }}" --environment secret="${{ secrets.NET_API_SECRET }}"
+      run: dotnet test ./amadeus-integration-test/amadeus-integration-test.csproj --configuration Release --no-build --no-restore --environment key="${{ secrets.NET_API_KEY }}" --environment secret="${{ secrets.NET_API_SECRET }}"
     - name: run UnitTests
-      run: dotnet test ./amadeus-test/amadeus-test.csproj --configuration Release -p:platform="Any CPU" --no-build --no-restore
+      run: dotnet test ./amadeus-test/amadeus-test.csproj --configuration Release --no-build --no-restore
   SonarCloud:
     name: Build SonarCloud Test
     runs-on: ubuntu-latest
