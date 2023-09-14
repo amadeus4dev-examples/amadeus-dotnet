@@ -1,5 +1,10 @@
 name: build
-on: push
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+    types: [opened, synchronize, reopened]
 jobs:
   Build:
     runs-on: ubuntu-latest
