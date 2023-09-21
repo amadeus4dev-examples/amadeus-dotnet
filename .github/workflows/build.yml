@@ -16,11 +16,7 @@ jobs:
     - name: Restore NuGet packages
       run: nuget restore amadeus-csharp.sln
     - name: Build the Solution
-    - name: Install .NET 3.1 SDK
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.0
-      run: | 
+      run: |
         msbuild amadeus-csharp.sln /p:platform="Any CPU" /p:Configuration=Release
     - name: Setup VSTest
       uses: darenm/Setup-VSTest@v1
