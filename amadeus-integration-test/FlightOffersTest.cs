@@ -15,8 +15,11 @@ namespace amadeus_integration_test
         public void Get_FlightOffers()
         {
             var amadeus = GetAmadeusBuild();
-            FlightOffer[] response = amadeus.shopping.flightOffersSearch.getFlightOffers(Params.with("originLocationCode", "SYD").and("destinationLocationCode", "BKK")
-                .and("departureDate", System.DateTime.Now.AddMonths(2).ToString("yyyy-MM-dd")).and("adults", "1"));
+            FlightOffer[] response = amadeus.shopping.flightOffersSearch.getFlightOffers(Params
+                .with("originLocationCode", "SYD")
+                .and("destinationLocationCode", "BKK")
+                .and("departureDate", System.DateTime.Now.AddMonths(2).ToString("yyyy-MM-dd"))
+                .and("adults", "1"));
 
             Assert.True(response != null);
             Assert.True(response[0].type == "flight-offer");

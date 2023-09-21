@@ -25,12 +25,13 @@ namespace amadeus_integration_test
             var amadeus = GetAmadeusBuild();
 
             var flightOffersSearch = new FlightOffersSearch(amadeus);
-            FlightOffer[] flightOffersSearches = amadeus.shopping.flightOffersSearch.getFlightOffers(Params.with("originLocationCode", "SYD")
-            .and("destinationLocationCode", "BKK")
-            .and("departureDate", System.DateTime.Now.AddMonths(2).ToString("yyyy-MM-dd"))
-            .and("returnDate", System.DateTime.Now.AddMonths(3).ToString("yyyy-MM-dd"))                                                                                                                                                                             
-            .and("adults", "1")
-            .and("max", "2"));
+            FlightOffer[] flightOffersSearches = amadeus.shopping.flightOffersSearch.getFlightOffers(Params
+                .with("originLocationCode", "MAD")
+                .and("destinationLocationCode", "LON")
+                .and("departureDate", System.DateTime.Now.AddMonths(2).ToString("yyyy-MM-dd"))
+                .and("returnDate", System.DateTime.Now.AddMonths(3).ToString("yyyy-MM-dd"))                                                                                                                                                                             
+                .and("adults", "1")
+                .and("max", "2"));
             string body = "{\"data\":[" + flightOffersSearches[0].response.data[0] + "]}}";
             
             SeatMap[] response = amadeus.shopping.seatmaps.postSeatMap(body);

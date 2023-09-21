@@ -50,8 +50,8 @@ namespace amadeus.shopping
         /// 
         /// <code>
         /// amadeus.shopping.flightOffers.get(Params
-        ///     .with("origin", "LHR")
-        ///     .and("destination", "LAX")
+        ///     .with("originLocationCode", "LHR")
+        ///     .and("destinationLocationCode", "LAX")
         ///     .and("departureDate", "2017-12-24"));
         /// </code>
         /// </summary>
@@ -61,7 +61,7 @@ namespace amadeus.shopping
         {
             try
             {
-                Response response = client.get("/v1/shopping/flight-offers", _params);
+                Response response = client.get("/v2/shopping/flight-offers", _params);
                 return (FlightOffer[])Resource.fromArray(response, typeof(FlightOffer[]));
             }
             catch (ResponseException)

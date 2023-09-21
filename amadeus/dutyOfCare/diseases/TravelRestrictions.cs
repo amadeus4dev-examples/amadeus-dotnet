@@ -42,7 +42,7 @@ namespace amadeus.dutyOfcare
         {
             try
             {
-                string path = "/v1/duty-of-care/diseases/covid19-area-report";
+                string path = "/v2/duty-of-care/diseases/covid19-area-report";
                 Response response = client.get(path, _params);
                 return (DiseaseAreaReport)Resource.fromObject(response, typeof(DiseaseAreaReport));
             }
