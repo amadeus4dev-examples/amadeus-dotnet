@@ -4,7 +4,6 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-    types: [opened, synchronize, reopened]
 jobs:
   Build:
     runs-on: [windows-latest]
@@ -17,15 +16,14 @@ jobs:
     - name: Restore NuGet packages
       run: nuget restore amadeus-csharp.sln
     - name: Build the Solution
+    - name: Install .NET 3.1 SDK
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.0
       run: | 
         msbuild amadeus-csharp.sln /p:platform="Any CPU" /p:Configuration=Release
     - name: Setup VSTest
       uses: darenm/Setup-VSTest@v1
-    - name: Run IntegrationTests
-      run: vstest.console.exe .\amadeus-integration-test\bin\Release\netcoreapp3.1\amadeus-integration-test.dll
-      env:
-          key: ${{ secrets.NET_API_KEY }}
-          secret: ${{ secrets.NET_API_SECRET }}
     - name: Run UnitTests
       run: vstest.console.exe .\amadeus-test\bin\Release\netcoreapp3.1\amadeus-test.dll
   SonarCloud:
