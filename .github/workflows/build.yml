@@ -6,24 +6,19 @@ on:
     branches: [ master ]
 jobs:
   Build:
-    runs-on: [windows-latest]
+    runs-on: ubuntu-latest
+    env:
+      dotnet-version: 6.0.x
     steps:
-    - name: checkout
-      uses: actions/checkout@v2
-    - name: install dotnet
+    - uses: actions/checkout@v2
+    - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '3.1.x'
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v1
-    - name: Setup NuGet
-      uses: NuGet/setup-nuget@v1.0.5
-    - name: Restore NuGet packages
-      run: nuget restore amadeus-csharp.sln
+        dotnet-version: ${{ env.dotnet-version }}
+    - name: restore .NET dependencies
+      run: dotnet restore amadeus-csharp.sln
     - name: Build the Solution
-      run: |
-        msbuild amadeus-csharp.sln /p:platform="Any CPU" /p:Configuration=Release
-    - name: Setup VSTest
-      uses: darenm/Setup-VSTest@v1
-    - name: Run UnitTests
-      run: vstest.console.exe .\amadeus-test\bin\Release\netcoreapp3.1\amadeus-test.dll
+      run: | 
+        dotnet build amadeus-csharp.sln --configuration Release -p:platform="Any CPU" --no-restore
+    - name: run UnitTests
+      run: dotnet test ./amadeus-test/amadeus-test.csproj --configuration Release --no-build --no-restore
