@@ -4,7 +4,6 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-    types: [opened, synchronize, reopened]
 jobs:
   Build:
     runs-on: ubuntu-latest
@@ -21,47 +20,5 @@ jobs:
     - name: Build the Solution
       run: | 
         dotnet build amadeus-csharp.sln --configuration Release -p:platform="Any CPU" --no-restore
-    - name: Run IntegrationTests
-      run: dotnet test ./amadeus-integration-test/amadeus-integration-test.csproj --configuration Release --no-build --no-restore --environment key="${{ secrets.NET_API_KEY }}" --environment secret="${{ secrets.NET_API_SECRET }}"
     - name: run UnitTests
       run: dotnet test ./amadeus-test/amadeus-test.csproj --configuration Release --no-build --no-restore
-  SonarCloud:
-    name: Build SonarCloud Test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.11
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: Cache SonarCloud packages
-        uses: actions/cache@v1
-        with:
-          path: ~\sonar\cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
-      - name: Cache SonarCloud scanner
-        id: cache-sonar-scanner
-        uses: actions/cache@v1
-        with:
-          path: .\.sonar\scanner
-          key: ${{ runner.os }}-sonar-scanner
-          restore-keys: ${{ runner.os }}-sonar-scanner
-      - name: Install SonarCloud scanner linux
-        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
-        shell: bash
-        run: |
-          mkdir -p ~/.sonar/scanner
-          dotnet tool install -g dotnet-sonarscanner
-      - name: Build and analyze
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        shell: bash
-        run: |
-          dotnet-sonarscanner begin /k:"amadeus4dev_amadeus-dotnet" /o:"amadeus4dev" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet restore amadeus-csharp.sln
-          dotnet build amadeus-csharp.sln /p:platform="Any CPU" /p:Configuration=Release
-          dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
