@@ -10,7 +10,7 @@ namespace amadeus.resources
     public class PricingOptions
     {
         internal PricingOptions() { }
-
+        public List<string> fareType { get; set; }
         /// <summary>
         /// Gets or sets the type of the includedCheckedBagsOnly.
         /// </summary>

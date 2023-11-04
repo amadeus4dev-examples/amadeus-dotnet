@@ -15,6 +15,8 @@ namespace amadeus.resources
         /// Gets or sets the type of the type.
         /// </summary>
         /// <value>The type of the type.</value>
+
+        public string amount { get; set; }
         public string type { get; set; }
 
     }

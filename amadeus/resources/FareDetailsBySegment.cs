@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -39,6 +40,7 @@ namespace amadeus.resources
         /// Gets or sets the type of the class.
         /// </summary>
         /// <value>The type of the class.</value>
+        [JsonProperty("class")]
         public string Class { get; set; }
 
         /// <summary>
